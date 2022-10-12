@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .grid-container1{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: auto;
+            gap: 10px;
+        }
+        .grid-container2{
+            display: grid;
+            grid-template-columns: 33% 33% 33% ;
+            gap: 10px;
+        }
+        .grid-container3{
+            display: grid;
+            gap: 10px
+        }
+        .grid{
+
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="grid-container1">
+    <div class="grid">A</div>
+    <div class="grid">B</div>
+    <div class="grid">C</div>
+</div>
+<br>
+<div class="grid-container2">
+    <div class="grid">links</div>
+    <div class="grid">mitte</div>
+    <div class="grid">rechts</div>
+</div>
+<br>
+<div class="grid-container3">
+    <div class="grid">Element</div>
+</div>
+</body>
+</html>

@@ -3,65 +3,47 @@ body{
     margin-left: 5%;
     margin-right: 5%;
 }
-h1{
-    font-weight: bold;
-    margin-left:15%;
 
-}
-p{
-    border: 2px solid black;
-
-    margin-left:10%;
-    margin-right:20%;
-    text-align: left;
-}
-.grid-header{
-    display: grid;
-    grid-template-columns: 20% 60%;
-    margin-top: 35px;
-    margin-left: 5px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    column-gap: 10px;
-}
 .header{
-    border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(5,auto);
+    grid-template-columns: 10% 60%;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+a{
     padding: 10px;
-}
-.Element-Header{
-    color: #67d5c2;
-    text-decoration: underline;
-    padding:1px;
-}
-logo{
-    border: 1px solid black;
-    padding: 5px;
-    margin-left: 2px;
-}
-table{
+    color: blue;
 
-    margin-left: 10%;
-    margin-right: 10%;
 }
-th{
-    padding: 2px;
+.box{
     border: 1px solid black;
+    margin-left: 15%;
+    margin-right: 30%;
 }
-td{
-    border: 1px solid black;
-}
-.table-unten{
-    text-align: center;
-}
-.grid-zahlen{
-    display: grid;
-    grid-template-columns:repeat(3, 20%) ;
-    grid-column-gap: 5%;
-    margin-left: 10%;
-}
-.kisten/* Kisten fuer draussen*/{
+h1{
     margin-left:15%;
-
+    margin-right: 30%;
+}
+th,td{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.numbers{
+}
+body>ul{
+    margin-left: 30%;
+}
+/*css fuer footer*/
+footer>ul{
+    text-align: right;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 40% 15% 15%;
+}
+footer>ul>li::before{
+    margin-right: 30px;
+    margin-left: 15px;
+}
+footer>ul>li:not(:first-child):before{
+    content: "|";
 }
