@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe6</title>
+</head>
+<body>
+<div id="teilAufgabe_1a">
+  <h3>Aufgab 6 (1a)</h3>
+  <img src="GET_Reqest.jpg" alt="reqest_img"><br>
+  <p id="reqest"> Der Header in Anfrage hat verschiedene Attributen zB.</p>
+  <ul>
+    <li><b>User-Agent</b>: welche App hat diese Anfrage geschickt</li>
+    <li><b>Version HTTP/1.1</b> : version der HTTP-Protokol der in diesen verbindung benutzt wird</li>
+    <li><b>Connection: keep-alive</b> : sagt der Server, dass der Verbindung nach diese packet nicht unterbreschen soll</li>
+    <li><b>Host: www.fh-aachen.de</b>: der Host-Domain muss benannt werden weil es kann sein ,das unter eine Server-IP-Adresse
+    verschiedene Webseiten gehostet</li>
+  </ul>
+
+</div>
+<br>
+<div id="teilAufgabe_1b">
+    <h3>Aufgab 6 (1b)</h3>
+    <img src="GET_Response.jpg" alt="response_img">
+    <p id="response"> Der Header im Antwort : </p>
+    <ul>
+        <li><b>Status 200 OK</b> : das alles in Ordung ist und keine Fehler von Benutzer-seite oder Server-seite vorhanden ist </li>
+        <li><b>Strict-Transport-Security: max-age=31536000 </b>: -> ungefähr 1 Jahr : sagt das in deisem Jahr sollte HTTPS als protokol
+        benutzt wird</li>
+    </ul>
+</div>
+<br>
+<div id="teilAufgabe_2">
+    <h3>Aufgab 6 (2)</h3>
+    <img src="Analyse_POST.jpg" alt="post_analyse">
+    <p id="post_analyse"> </p>
+    <ul>
+        <li><b>Status 404 Not Found</b> : es ist Status Code 4XX Bereich -> Client-Fehler</li>
+        <li><b>Version HTTPS/1.1</b> : es wird die Version 1.1 von HTTP-Protokoll benutzt</li>
+        <li><b>Accept-Language : en-US=0.5</b> : Sprache auf Englisch obwohle das sollte auf Deutsch sein :) es ist meine Fehler</li>
+        <li><b>content-Length 113</b>: daten länge die geschickt wird </li>
+        <li><b>Cookie</b>: cookie Id</li>
+        <li><b>Host</b>: an welches Domain diese Post geschickt ist</li>
+        <li><b>Origin</b>: IDK</li>
+        <li><b>Referer</b>: IDK</li>
+    </ul>
+
+</div>
+</body>
+</html>
