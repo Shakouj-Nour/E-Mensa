@@ -13,7 +13,7 @@ body{
 }
 a{
     padding: 10px;
-    color: blue;
+    color: aquamarine;
 
 }
 .box{
@@ -25,7 +25,15 @@ h1{
     margin-left:15%;
     margin-right: 30%;
 }
+/*table css*/
+table{
+    width: 100%;
+}
+thead{
+    background-color: aquamarine;
+}
 th,td{
+    border-collapse: collapse;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
