@@ -32,15 +32,30 @@ thead{
 }
 th,td{
     border: 1px solid black;
+    text-align: center;
     /*
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     */
 }
 .numbers{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.zahl{
+    display: inline-grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
 }
 body>ul{
     margin-left: 30%;
+}
+/*css fuer newsletter form*/
+.newsletterform{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 /*css fuer footer*/
 

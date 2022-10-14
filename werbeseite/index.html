@@ -14,7 +14,7 @@
             <a href="#Speisen">Speisen</a>
             <a href="#Zahlen">Zahlen</a>
             <a href="#Kontakt">Kontakt</a>
-            <a href="#Wichtig für uns">Wichtig für uns</a>
+            <a href="#Wichtig">Wichtig für uns</a>
         </div>
     </div>
     <hr>
@@ -56,28 +56,40 @@
     <h1> E-Mensa in Zahlen</h1>
     <div class="box" id="Zahlen">
         <div class="numbers">
-            <div>X Besuche</div>
-            <div>Y Anmeldungen zum Newsletter</div>
-            <div>Z Speisen</div>
+            <div class="zahl">
+                <h4>X</h4>
+                <h4>Besuche</h4>
+            </div>
+            <div class="zahl">
+                <h4>Y</h4>
+                <h4>Anmeldungen</h4>
+            </div>
+            <div class="zahl">
+                <h4>Z</h4>
+                <h4>Speisen</h4>
+            </div>
         </div>
     </div>
-    <h1>Intersse geweckt? wir informieren Sie!</h1>
+    <h1>Interesse geweckt? wir informieren Sie!</h1>
     <div  class="box" id="Kontakt">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="benutzer" placeholder="Name">
-        <label for="absender">E-Mail Adresse:</label>
-        <input type="email" id="absender" placeholder="E-Mail">
-        <select name="Newsletter in:">
-            <option value="1">Deutsch</option>
-            <option value="2">Englisch</option>
-        </select>
-        <br>
-        <br>
-        <input type="checkbox" required> Den Datenschutzbestimmungen stimme ich zu
-        <input type="submit" value="Zum Newsletter anmelden">
+        <div class="newsletterform">
+            <label for="name" >Name:</label>
+            <input type="text" id="name" name="benutzer" placeholder="Name" style="width: 20%">
+            <label for="absender">E-Mail Adresse:</label>
+            <input type="email" id="absender" placeholder="E-Mail" style="width: 20%">
+            <label for="language">Sprache:</label>
+            <select value="Newsletter in:" id="language">
+                <option value="1">Deutsch</option>
+                <option value="2">Englisch</option>
+            </select>
+            <br>
+            <br>
+            <input type="checkbox" required> Den Datenschutzbestimmungen stimme ich zu
+            <input type="submit" value="Zum Newsletter anmelden">
+        </div>
     </div>
     <h1>Das ist uns Wichtig</h1>
-    <ul>
+    <ul id="Wichtig">
         <li>Beste frische saisonale Zutaten</li>
         <li>Ausgewogene abwechslungsreiche Gerichte</li>
         <li>Sauberkeit</li>
