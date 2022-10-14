@@ -4,6 +4,7 @@ body{
     margin-right: 5%;
 }
 
+
 .header{
     display: grid;
     grid-template-columns: 10% 60%;
