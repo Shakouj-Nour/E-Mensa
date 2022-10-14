@@ -1,4 +1,6 @@
-body{
+
+
+.bodySomthing{
     border: 1px solid black;
     margin-left: 5%;
     margin-right: 5%;
@@ -7,21 +9,37 @@ body{
     margin-left: 20%;
     margin-right: 20%;
 }
+.img{
+ width: 150px;
+ height: 70px;
+ border: 1px solid #135f1f;
+ margin-left : 1%;
+ margin-top: 14px;
+}
 
-.header{
-    display: grid;
-    grid-template-columns: 10% 60%;
-    margin-top: 35px;
-    margin-bottom: 10px;
+.menu{
+background-color:aquamarine;
+display:flex;
+ top: 2%;
+
+
+}
+.menuElemnte{
+
+margin-top:25px;
+margin-left: 7%;
+
 }
 a{
     padding: 10px;
-    color: aquamarine;
+    color: black;
 
 }
 .box{
+    border: 1px solid black;
     border: 1px solid darkslategray;
 }
+
 /*table css*/
 table{
     width: 100%;
