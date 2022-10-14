@@ -6,71 +6,84 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="header">
-    <img src="E-Mensa.png" alt="E-Mensa Logo" style="width: 100px;height: 50px;">
-    <div>
-        <a href="#Ankündigung">Ankündigung</a>
-        <a href="#Speisen">Speisen</a>
-        <a href="#Zahlen">Zahlen</a>
-        <a href="#Kontakt">Kontakt</a>
-        <a href="#Wichtig für uns">Wichtig für uns</a>
+<div class="body-style">
+    <div class="header">
+        <img src="E-Mensa.png" alt="E-Mensa Logo" style="width: 100px;height: 50px;">
+        <div>
+            <a href="#Ankündigung">Ankündigung</a>
+            <a href="#Speisen">Speisen</a>
+            <a href="#Zahlen">Zahlen</a>
+            <a href="#Kontakt">Kontakt</a>
+            <a href="#Wichtig für uns">Wichtig für uns</a>
+        </div>
     </div>
-</div>
-<hr>
-<div class="box" id="">
-    .
-</div>
-<h1>Bald gibt es Essen auch online ;)</h1>
-<div class="box" id="Ankündigung">
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic inventore, nulla. Dignissimos dolorem doloribus eos, exercitationem facilis hic laboriosam repellat sapiente. Ad alias, autem consequuntur, corporis culpa dicta eius ex fugiat harum ipsa ipsum laboriosam minus officia officiis perspiciatis possimus quam, quas quo repellendus sunt suscipit temporibus voluptatem voluptates voluptatum?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid consectetur corporis cupiditate deleniti distinctio dolore dolorem eaque eligendi fuga id illo illum iste iure, laboriosam, libero mollitia nesciunt odio officiis perspiciatis possimus quae quaerat quas quasi sequi soluta unde voluptate. Blanditiis cumque dolore enim laborum nihil sint sit sunt!
-    </p>
-</div>
-<h1> Köstlichkeiten, die Sie erwarten</h1>
-<div class="box" id="Speisen">
-    <table>
-        <thead>
-        <th></th>
-        <th>Preis intern</th>
-        <th>Preis extern</th>
-        </thead>
-        <tr>
-            <td>Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie nudeln</td>
-            <td>3,5€</td>
-            <td>6,2€</td>
-        </tr>
-        <tr>
-            <td>Spinatrisotto mit kleinen Samosateigecken und gemischter Salat</td>
-            <td>2,9€</td>
-            <td>5,3€</td>
-        </tr>
-        <tr class="table-unten">
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-        </tr>
-    </table>
-</div>
-<h1> E-Mensa in Zahlen</h1>
-<div class="box" id="Zahlen">
-    <div class="numbers">
-        <div>X Besuche</div>
-        <div>Y Anmeldungen zum Newsletter</div>
-        <div>Z Speisen</div>
+    <hr>
+    <div class="box" id="">
+        .
     </div>
+    <h1>Bald gibt es Essen auch online ;)</h1>
+    <div class="box" id="Ankündigung">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic inventore, nulla. Dignissimos dolorem doloribus eos, exercitationem facilis hic laboriosam repellat sapiente. Ad alias, autem consequuntur, corporis culpa dicta eius ex fugiat harum ipsa ipsum laboriosam minus officia officiis perspiciatis possimus quam, quas quo repellendus sunt suscipit temporibus voluptatem voluptates voluptatum?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid consectetur corporis cupiditate deleniti distinctio dolore dolorem eaque eligendi fuga id illo illum iste iure, laboriosam, libero mollitia nesciunt odio officiis perspiciatis possimus quae quaerat quas quasi sequi soluta unde voluptate. Blanditiis cumque dolore enim laborum nihil sint sit sunt!
+        </p>
+    </div>
+    <h1> Köstlichkeiten, die Sie erwarten</h1>
+    <div class="box" id="Speisen">
+        <table>
+            <thead>
+            <th></th>
+            <th>Preis intern</th>
+            <th>Preis extern</th>
+            </thead>
+            <tr>
+                <td>Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie nudeln</td>
+                <td>3,5€</td>
+                <td>6,2€</td>
+            </tr>
+            <tr>
+                <td>Spinatrisotto mit kleinen Samosateigecken und gemischter Salat</td>
+                <td>2,9€</td>
+                <td>5,3€</td>
+            </tr>
+            <tr class="table-unten">
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </table>
+    </div>
+    <h1> E-Mensa in Zahlen</h1>
+    <div class="box" id="Zahlen">
+        <div class="numbers">
+            <div>X Besuche</div>
+            <div>Y Anmeldungen zum Newsletter</div>
+            <div>Z Speisen</div>
+        </div>
+    </div>
+    <h1>Intersse geweckt? wir informieren Sie!</h1>
+    <div  class="box" id="Kontakt">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="benutzer" placeholder="Name">
+        <label for="absender">E-Mail Adresse:</label>
+        <input type="email" id="absender" placeholder="E-Mail">
+        <select name="Newsletter in:">
+            <option value="1">Deutsch</option>
+            <option value="2">Englisch</option>
+        </select>
+        <br>
+        <br>
+        <input type="checkbox" required> Den Datenschutzbestimmungen stimme ich zu
+        <input type="submit" value="Zum Newsletter anmelden">
+    </div>
+    <h1>Das ist uns Wichtig</h1>
+    <ul>
+        <li>Beste frische saisonale Zutaten</li>
+        <li>Ausgewogene abwechslungsreiche Gerichte</li>
+        <li>Sauberkeit</li>
+    </ul>
+    <h1 style="text-align: center">Wir freuen uns auf Ihren Besuch!</h1>
 </div>
-<h1>Intersse geweckt? wir informieren Sie!</h1>
-<div id="Kontakt">
-
-</div>
-<h1>Das ist uns Wichtig</h1>
-<ul>
-    <li>Beste frische saisonale Zutaten</li>
-    <li>Ausgewogene abwechslungsreiche Gerichte</li>
-    <li>Sauberkeit</li>
-</ul>
-<h1 style="text-align: center">Wir freuen uns auf Ihren Besuch!</h1>
 </body>
 <hr>
 <footer>
