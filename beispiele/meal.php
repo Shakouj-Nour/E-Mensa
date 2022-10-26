@@ -57,7 +57,7 @@ if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) { //was?
 }
 
 function calcMeanStars(array $ratings) : float{
-    $sum = 1;
+    $sum = 0;
     foreach ($ratings as $rating) {
         $sum += $rating['stars'] / count($ratings);
     }
