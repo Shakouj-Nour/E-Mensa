@@ -38,7 +38,7 @@ $ratings = [
 ];
 
 $showRatings = [];
-if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
+if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) { //was?
     $searchTerm = $_GET[GET_PARAM_SEARCH_TEXT];
     foreach ($ratings as $rating) {
         if (strpos($rating['text'], $searchTerm) !== false) {
@@ -82,6 +82,12 @@ function calcMeanStars(array $ratings) : float{
     <body>
         <h1>Gericht: <?php echo $meal['name']; ?></h1>
         <p><?php echo $meal['description']; ?></p>
+
+        <p>Allergens:</p>
+        <ul>
+            <li><?php echo$allergens[$meal['allergens'][0]]; ?></li>
+            <li><?php echo$allergens[$meal['allergens'][1]]; ?></li>
+        </ul>
         <h1>Bewertungen (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
         <form method="get">
             <label for="search_text">Filter:</label>
@@ -93,6 +99,7 @@ function calcMeanStars(array $ratings) : float{
             <tr>
                 <td>Text</td>
                 <td>Sterne</td>
+                <td>Author</td>
             </tr>
             </thead>
             <tbody>
@@ -100,6 +107,7 @@ function calcMeanStars(array $ratings) : float{
         foreach ($showRatings as $rating) {
             echo "<tr><td class='rating_text'>{$rating['text']}</td>
                       <td class='rating_stars'>{$rating['stars']}</td>
+                      <td class='rating_author'>{$rating['author']}</td> 
                   </tr>";
         }
         ?>
