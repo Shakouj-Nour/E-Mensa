@@ -1,11 +1,6 @@
 
-<!--
-- Praktikum DBWT. Autoren:
-- Nour, Shakouj,3531635
-- Andreas Welly Octavianus, 3541951
--->
 
-.bodySomthing{
+.bodyRahmen{
     border: 1px solid black;
     margin-left: 5%;
     margin-right: 5%;
@@ -14,12 +9,12 @@
     margin-left: 20%;
     margin-right: 20%;
 }
-.img{
- width: 150px;
- height: 70px;
- border: 1px solid #135f1f;
- margin-left : 1%;
- margin-top: 14px;
+.imgLogo{
+    width: 150px;
+    height: 70px;
+    border: 1px solid #135f1f;
+    margin-left : 1%;
+    margin-top: 14px;
 }
 
 .menu{
