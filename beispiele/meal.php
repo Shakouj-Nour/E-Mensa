@@ -1,4 +1,10 @@
 <?php
+/**
+- Praktikum DBWT. Autoren:
+- Nour, Shakouj,3531635
+- Andreas Welly Octavianus, 3541951
+*/
+
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
 
