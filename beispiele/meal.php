@@ -41,7 +41,8 @@ $showRatings = [];
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) { //was?
     $searchTerm = $_GET[GET_PARAM_SEARCH_TEXT];
     foreach ($ratings as $rating) {
-        if (strpos($rating['text'], $searchTerm) !== false) {
+        if (strpos(strtoupper($rating['text']), strtoupper($searchTerm)) !== false) {
+        //($rating['text'] == $searchTerm){
             $showRatings[] = $rating;
         }
     }
