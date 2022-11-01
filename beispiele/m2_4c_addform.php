@@ -5,7 +5,11 @@
 - Andreas Welly Octavianus, 3541951
  */
 include 'm2_4a_standardparameter.php';
-if(isset())
+if(isset($_POST['calculate'])){
+    $var1 = $_POST['var1'];
+    $var2 = $_POST['var2'];
+    $result = $var1+$var2;
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -21,9 +25,10 @@ if(isset())
         <input id="b" type="text" name="var2">
         <br>
         <input type="button" value="calculate" name="calculate">
+        <?php
+        echo $result;
+        ?>
     </form>
-    <?php
-    echo $result = (int)$_GET['var1'] + (int)$_GET['var2'];
-    ?>
+
     </body>
 </html>
