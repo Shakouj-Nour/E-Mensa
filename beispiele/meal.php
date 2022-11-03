@@ -87,9 +87,22 @@ function calcMeanStars(array $ratings) : float{
         </style>
     </head>
     <body>
-        <h1>Gericht: <?php echo $meal['name']; ?></h1>
-        <p><?php echo $meal['description']; ?></p>
 
+        <h1>Gericht: <?php echo $meal['name']; ?></h1>
+        <form method="get">
+            <input type="number" id="check" name="show_desc">
+            <label for="show_desc">Beschreibung</label>
+        <p><?php
+            $check = $_GET['show_desc'] ?? NULL;
+
+            if($check != "0") {
+                echo $meal['description'];
+            }
+            elseif($check == "0"){
+
+            }
+            ?></p>
+        </form>
         <p>Allergens:</p>
         <ul>
             <li><?php echo$allergens[$meal['allergens'][0]]; ?></li>
@@ -97,8 +110,16 @@ function calcMeanStars(array $ratings) : float{
         </ul>
         <h1>Bewertungen (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
         <form method="get">
+            <?php
+            if(isset($_GET['search_text'])){
+                $search= $_GET['search_text'];
+            }
+            else{
+                $search='';
+            }
+            ?>
             <label for="search_text">Filter:</label>
-            <input id="search_text" type="text" name="search_text">
+            <input id="search_text" type="text" name="search_text" value="<?php echo $search ?>">
             <input type="submit" value="Suchen">
         </form>
         <table class="rating">
