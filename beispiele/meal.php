@@ -122,6 +122,13 @@ function calcMeanStars(array $ratings) : float{
             <input id="search_text" type="text" name="search_text" value="<?php echo $search ?>">
             <input type="submit" value="Suchen">
         </form>
+        <form method="get">
+            <p>Order:</p>
+            <input type="radio" id="filter1" name="order" value="TOP">
+            <label for="filter1">high to low</label>
+            <input type="radio" id="filter2" name="order" VALUE="FLOPP">
+            <label for="filter2">low to high</label>
+        </form>
         <table class="rating">
             <thead>
             <tr>
@@ -132,13 +139,17 @@ function calcMeanStars(array $ratings) : float{
             </thead>
             <tbody>
             <?php
-        foreach ($showRatings as $rating) {
-            echo "<tr><td class='rating_text'>{$rating['text']}</td>
+            $order = $_GET['order'] ?? NULL;
+            if($order == 'TOP'){
+                sort( $showRatings, SORT_NUMERIC );
+            }
+            foreach ($showRatings as $rating) {
+                echo "<tr><td class='rating_text'>{$rating['text']}</td>
                       <td class='rating_stars'>{$rating['stars']}</td>
                       <td class='rating_author'>{$rating['author']}</td> 
-                  </tr>";
-        }
-        ?>
+                      </tr>";
+            }
+            ?>
             </tbody>
         </table>
     </body>
