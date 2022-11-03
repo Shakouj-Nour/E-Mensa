@@ -7,7 +7,12 @@
 
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
-
+$lang =[
+        'Bewertung' => 'Rating',
+        'Name' => 'Name',
+        'Begrundung' => 'Reason',
+        'Senden' => 'Send'
+];
 /**
  * List of all allergens.
  */
@@ -87,8 +92,15 @@ function calcMeanStars(array $ratings) : float{
         </style>
     </head>
     <body>
-
+    <div>
+        <a href="index.php?sprache=eng">Eng</a>
+        <a href="index.php?sprache=de">DE</a>
+    </div>
         <h1>Gericht: <?php echo $meal['name']; ?></h1>
+        <h2>Intern Price: <?php echo (float)$meal['price_intern']?> €
+            <br>
+            Extern Price: <?php echo (float)$meal['price_extern']?> €
+        </h2>
         <form method="get">
             <input type="number" id="check" name="show_desc">
             <label for="show_desc">Beschreibung</label>
@@ -108,7 +120,7 @@ function calcMeanStars(array $ratings) : float{
             <li><?php echo$allergens[$meal['allergens'][0]]; ?></li>
             <li><?php echo$allergens[$meal['allergens'][1]]; ?></li>
         </ul>
-        <h1>Bewertungen (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
+        <h1><?php echo $lang['Bewertung']; ?> (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
         <form method="get">
             <?php
             if(isset($_GET['search_text'])){
@@ -140,8 +152,15 @@ function calcMeanStars(array $ratings) : float{
             <tbody>
             <?php
             $order = $_GET['order'] ?? NULL;
+            $order = 0;
             if($order == 'TOP'){
-                sort( $showRatings, SORT_NUMERIC );
+                asort( $Ratings['stars']);
+            }
+            elseif ($order == 'FLOPP'){
+                arsort($showRatings);
+            }
+            else{
+
             }
             foreach ($showRatings as $rating) {
                 echo "<tr><td class='rating_text'>{$rating['text']}</td>

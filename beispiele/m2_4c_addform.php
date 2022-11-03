@@ -36,7 +36,7 @@ function multiply($var1, $var2){
             echo $result;
         }
         elseif(empty($_POST['button'])){
-            echo "nicht gultig";
+            echo 'nicht gultig';
         }
         ?>
     </form>
