@@ -91,9 +91,9 @@
             <label for="absender">E-Mail Adresse:</label>
             <input type="email" id="absender"  name="email" placeholder="maxmustermann@something.com" style="width: 20%" required>
             <label for="language">Sprache:</label>
-            <select name="language:" id="language">
-                <option value="deutsch">Deutsch</option>
-                <option value="englisch">English</option>
+            <select name="language" id="language">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
             </select>
             <br>
             <br>
