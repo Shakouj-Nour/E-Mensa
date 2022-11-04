@@ -108,9 +108,6 @@ function keinGewinner($famousMeals)
             foreach ( keinGewinner($famousMeals) as $key){
                 echo $key. ', ';
             }
-
-            var_dump($loser);
-
         ?>
     </p>
 </body>

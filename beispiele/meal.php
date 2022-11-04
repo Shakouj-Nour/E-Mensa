@@ -7,12 +7,7 @@
 
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
-$lang =[
-        'Bewertung' => 'Rating',
-        'Name' => 'Name',
-        'Begrundung' => 'Reason',
-        'Senden' => 'Send'
-];
+
 /**
  * List of all allergens.
  */
@@ -75,13 +70,25 @@ function calcMeanStars(array $ratings) : float{
     }
     return $sum;
 }
+$lang =['gerichtname'=>['de' =>"Gericht" , 'en' => "Dish"],
+    'preise_intern' =>['de'=>"interner Preis", 'en' => "Price for intern"],
+    'preise_extern' =>['de'=>"externer Preis", 'en' => "Price for extern"],
+    'allergen' => ['de' => "Allergens", 'en'=>"Allergies"],
+    'bewertung' => ['de'=>"Bewertungen", 'en'=>"Rating"],
+    'stern' => ['de'=>"Stern", 'en'=>"Star"],
+];
 
 ?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="<?php echo $_GET['language'] ?>">
+<?php
+if(!isset($_GET['language'])){
+    $_GET['language']="de";
+}
+?>
     <head>
         <meta charset="UTF-8"/>
-        <title>Gericht: <?php echo $meal['name']; ?></title>
+        <title><?php echo $lang['gerichtname'][$_GET['language']]; ?>: <?php echo $meal['name']; ?></title>
         <style>
             * {
                 font-family: Arial, serif;
@@ -92,14 +99,15 @@ function calcMeanStars(array $ratings) : float{
         </style>
     </head>
     <body>
+
     <div>
-        <a href="index.php?sprache=eng">Eng</a>
-        <a href="index.php?sprache=de">DE</a>
+        <a href="?language=en">Eng</a>
+        <a href="?language=de">DE</a>
     </div>
-        <h1>Gericht: <?php echo $meal['name']; ?></h1>
-        <h2>Intern Price: <?php echo (float)$meal['price_intern']?> €
+        <h1><?php echo $lang['gerichtname'][$_GET['language']]; ?>: <?php echo $meal['name']; ?></h1>
+        <h2><?php echo $lang['preise_intern'][$_GET['language']]; ?>: <?php echo number_format($meal['price_intern'], 2)?> €
             <br>
-            Extern Price: <?php echo (float)$meal['price_extern']?> €
+            <?php echo $lang['preise_extern'][$_GET['language']]; ?>: <?php echo number_format($meal['price_extern'], 2)?> €
         </h2>
         <form method="get">
             <input type="number" id="check" name="show_desc">
@@ -115,12 +123,12 @@ function calcMeanStars(array $ratings) : float{
             }
             ?></p>
         </form>
-        <p>Allergens:</p>
+        <p><?php echo $lang['allergen'][$_GET['language']]; ?>:</p>
         <ul>
             <li><?php echo$allergens[$meal['allergens'][0]]; ?></li>
             <li><?php echo$allergens[$meal['allergens'][1]]; ?></li>
         </ul>
-        <h1><?php echo $lang['Bewertung']; ?> (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
+        <h1><?php echo $lang['bewertung'][$_GET['language']]; ?> (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
         <form method="get">
             <?php
             if(isset($_GET['search_text'])){
@@ -145,7 +153,7 @@ function calcMeanStars(array $ratings) : float{
             <thead>
             <tr>
                 <td>Text</td>
-                <td>Sterne</td>
+                <td><?php echo $lang['stern'][$_GET['language']]; ?></td>
                 <td>Author</td>
             </tr>
             </thead>
