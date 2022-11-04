@@ -4,7 +4,7 @@
 - Nour, Shakouj,3531635
 - Andreas Welly Octavianus, 3541951
 */
-
+const GET_PARAM_MAX_STARS = 'search_max_stars';
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
 
@@ -42,6 +42,24 @@ $ratings = [
         'author' => 'Marta M.',
         'stars' => 3 ]
 ];
+function findminstars(array $ratings): int{
+    $min = 10;
+    foreach ($ratings as $rating){
+        if ($rating['stars'] <= $min){
+            $min = $rating['stars'];
+        }
+    }
+    return $min;
+}
+function findmaxstars(array $ratings): int{
+    $max = 0;
+    foreach ($ratings as $rating){
+        if ($rating['stars'] >= $max){
+            $max = $rating['stars'];
+        }
+    }
+    return $max;
+}
 
 $showRatings = [];
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) { //was?
@@ -53,13 +71,22 @@ if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) { //was?
         }
     }
 } else if (!empty($_GET[GET_PARAM_MIN_STARS])) {
-    $minStars = $_GET[GET_PARAM_MIN_STARS];
+    $minStars = findminstars($ratings);
     foreach ($ratings as $rating) {
-        if ($rating['stars'] >= $minStars) {
+        if ($rating['stars'] <= $minStars) {
             $showRatings[] = $rating;
         }
     }
-} else {
+}
+else if (!empty($_GET[GET_PARAM_MAX_STARS])) {
+    $maxStars = findmaxstars($ratings);
+    foreach ($ratings as $rating) {
+        if ($rating['stars'] >= $maxStars) {
+            $showRatings[] = $rating;
+        }
+    }
+}
+else {
     $showRatings = $ratings;
 }
 
@@ -144,10 +171,8 @@ if(!isset($_GET['language'])){
         </form>
         <form method="get">
             <p>Order:</p>
-            <input type="radio" id="filter1" name="order" value="TOP">
-            <label for="filter1">high to low</label>
-            <input type="radio" id="filter2" name="order" VALUE="FLOPP">
-            <label for="filter2">low to high</label>
+            <button type="submit" name="search_max_stars" value="1">TOP</button>
+            <button type="submit"  name="search_min_stars" value="1">FLOPP</button>
         </form>
         <table class="rating">
             <thead>

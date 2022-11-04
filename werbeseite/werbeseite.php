@@ -83,23 +83,26 @@
         </div>
     </div>
     <h1>Interesse geweckt? wir informieren Sie!</h1>
+    <form action="Datei.php" method="post">
     <div  class="box" id="Kontakt">
         <div class="newsletterform">
             <label for="name" >Name:</label>
-            <input type="text" id="name" name="benutzer" placeholder="Name" style="width: 20%">
+            <input type="text" id="name" name="benutzer" placeholder="Name" style="width: 20%" required>
             <label for="absender">E-Mail Adresse:</label>
-            <input type="email" id="absender" placeholder="E-Mail" style="width: 20%">
+            <input type="email" id="absender"  name="email" placeholder="maxmustermann@something.com" style="width: 20%" required>
             <label for="language">Sprache:</label>
-            <select name="Newsletter in:" id="language">
-                <option value="1">Deutsch</option>
-                <option value="2">Englisch</option>
+            <select name="language:" id="language">
+                <option value="deutsch">Deutsch</option>
+                <option value="englisch">English</option>
             </select>
             <br>
             <br>
-            <input type="checkbox" required> Den Datenschutzbestimmungen stimme ich zu
-            <input type="submit" value="Zum Newsletter anmelden">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">Den Datenschutzbestimmungen stimme ich zu</label>
+            <input type="submit" value="melden">
         </div>
     </div>
+    </form>
     <h1>Das ist uns Wichtig</h1>
     <ul id="Wichtig">
         <li>Beste frische saisonale Zutaten</li>
