@@ -5,10 +5,8 @@
 - Andreas Welly Octavianus, 3541951
  */
 include 'm2_4a_standardparameter.php';
-if(isset($_POST['calculate'])){
-    $var1 = $_POST['var1'];
-    $var2 = $_POST['var2'];
-    $result = $var1+$var2;
+function multiply($var1, $var2){
+    return $var1*$var2;
 }
 ?>
 <!DOCTYPE html>
@@ -24,9 +22,22 @@ if(isset($_POST['calculate'])){
         <label for="b">second</label>
         <input id="b" type="text" name="var2">
         <br>
-        <input type="button" value="calculate" name="calculate">
+        <input type="submit" value="addieren" name="button">
+        <input type="submit" name="button" value="multiplieren">
         <?php
-        echo $result;
+        $var1 = $_POST['var1'] ?? NULL;
+        $var2 = $_POST['var2'] ?? NULL;
+        if(($_POST['button']) == "addieren"){
+            $result =  addieren($var1, $var2);
+            echo $result;
+        }
+        elseif (($_POST['button']) == "multiplieren"){
+            $result =  multiply($var1, $var2);
+            echo $result;
+        }
+        elseif(empty($_POST['button'])){
+            echo 'nicht gultig';
+        }
         ?>
     </form>
 

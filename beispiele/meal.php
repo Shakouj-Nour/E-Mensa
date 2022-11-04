@@ -7,7 +7,12 @@
 
 const GET_PARAM_MIN_STARS = 'search_min_stars';
 const GET_PARAM_SEARCH_TEXT = 'search_text';
-
+$lang =[
+        'Bewertung' => 'Rating',
+        'Name' => 'Name',
+        'Begrundung' => 'Reason',
+        'Senden' => 'Send'
+];
 /**
  * List of all allergens.
  */
@@ -87,19 +92,54 @@ function calcMeanStars(array $ratings) : float{
         </style>
     </head>
     <body>
+    <div>
+        <a href="index.php?sprache=eng">Eng</a>
+        <a href="index.php?sprache=de">DE</a>
+    </div>
         <h1>Gericht: <?php echo $meal['name']; ?></h1>
-        <p><?php echo $meal['description']; ?></p>
+        <h2>Intern Price: <?php echo (float)$meal['price_intern']?> €
+            <br>
+            Extern Price: <?php echo (float)$meal['price_extern']?> €
+        </h2>
+        <form method="get">
+            <input type="number" id="check" name="show_desc">
+            <label for="show_desc">Beschreibung</label>
+        <p><?php
+            $check = $_GET['show_desc'] ?? NULL;
 
+            if($check != "0") {
+                echo $meal['description'];
+            }
+            elseif($check == "0"){
+
+            }
+            ?></p>
+        </form>
         <p>Allergens:</p>
         <ul>
             <li><?php echo$allergens[$meal['allergens'][0]]; ?></li>
             <li><?php echo$allergens[$meal['allergens'][1]]; ?></li>
         </ul>
-        <h1>Bewertungen (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
+        <h1><?php echo $lang['Bewertung']; ?> (Insgesamt: <?php echo calcMeanStars($ratings); ?>)</h1>
         <form method="get">
+            <?php
+            if(isset($_GET['search_text'])){
+                $search= $_GET['search_text'];
+            }
+            else{
+                $search='';
+            }
+            ?>
             <label for="search_text">Filter:</label>
-            <input id="search_text" type="text" name="search_text">
+            <input id="search_text" type="text" name="search_text" value="<?php echo $search ?>">
             <input type="submit" value="Suchen">
+        </form>
+        <form method="get">
+            <p>Order:</p>
+            <input type="radio" id="filter1" name="order" value="TOP">
+            <label for="filter1">high to low</label>
+            <input type="radio" id="filter2" name="order" VALUE="FLOPP">
+            <label for="filter2">low to high</label>
         </form>
         <table class="rating">
             <thead>
@@ -111,13 +151,24 @@ function calcMeanStars(array $ratings) : float{
             </thead>
             <tbody>
             <?php
-        foreach ($showRatings as $rating) {
-            echo "<tr><td class='rating_text'>{$rating['text']}</td>
+            $order = $_GET['order'] ?? NULL;
+            $order = 0;
+            if($order == 'TOP'){
+                asort( $Ratings['stars']);
+            }
+            elseif ($order == 'FLOPP'){
+                arsort($showRatings);
+            }
+            else{
+
+            }
+            foreach ($showRatings as $rating) {
+                echo "<tr><td class='rating_text'>{$rating['text']}</td>
                       <td class='rating_stars'>{$rating['stars']}</td>
                       <td class='rating_author'>{$rating['author']}</td> 
-                  </tr>";
-        }
-        ?>
+                      </tr>";
+            }
+            ?>
             </tbody>
         </table>
     </body>

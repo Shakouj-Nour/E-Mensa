@@ -7,8 +7,30 @@ $famousMeals = [
     3 => ['name' => 'Spaghetti Bolognese',
         'winner' => [2011, 2012, 2017]],
     4 => ['name' => 'Jägerschnitzel mit Pommes',
-        'winner' => 2019]
+        'winner' => [2019]]
 ];
+
+$loser=array();
+function keinGewinner($famousMeals)
+{
+    $year=[];
+    foreach ($famousMeals as $meals){
+        foreach ($meals['winner'] as $years){
+            $year[]= $years;
+        }
+    }
+    asort($year, SORT_NUMERIC);
+    $test= range(2000, 2022);
+    foreach ($test as $key) {
+        if(in_array($key, $year)){
+
+        }
+        else{
+            $loser[]=$key;
+        }
+    }
+    return $loser;
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -22,8 +44,13 @@ $famousMeals = [
                 echo $famousMeals[1]['name'];
                 echo "<br>";
                 $name = $famousMeals[1];
-                foreach ($name['winner']as $jahr){
-                    echo $jahr, ',';
+                $a = 0;
+                foreach (array_reverse($name['winner'])as $jahr){
+                    if($a != 0){
+                        echo ', ';
+                    }
+                    $a++;
+                    echo $jahr;
                 }
             ?>
         </li>
@@ -33,8 +60,13 @@ $famousMeals = [
                 echo $famousMeals[2]['name'];
                 echo "<br>";
                 $name = $famousMeals[2];
-                foreach ($name['winner']as $jahr){
-                    echo $jahr, ',';
+                $a = 0;
+                foreach (array_reverse($name['winner'])as $jahr){
+                    if($a != 0){
+                        echo ', ';
+                    }
+                    $a++;
+                    echo $jahr;
                 }
             ?>
         </li>
@@ -44,8 +76,13 @@ $famousMeals = [
                 echo $famousMeals[3]['name'];
                 echo "<br>";
                 $name = $famousMeals[3];
-                foreach ($name['winner']as $jahr){
-                    echo $jahr, ',';
+                $a = 0;
+                foreach (array_reverse($name['winner'])as $jahr){
+                    if($a != 0){
+                        echo ', ';
+                    }
+                    $a++;
+                    echo $jahr;
                 }
             ?>
         </li>
@@ -55,11 +92,25 @@ $famousMeals = [
                 echo $famousMeals[4]['name'];
                 echo "<br>";
                 $name = $famousMeals[4];
+                $a = 0;
                 foreach ($name['winner']as $jahr){
-                    echo $jahr, ',';
+                    if($a != 0){
+                        echo ', ';
+                    }
+                    $a++;
+                    echo $jahr;
                 }
             ?>
         </li>
-
     </ol>
+    <p>
+        <?php
+            foreach ( keinGewinner($famousMeals) as $key){
+                echo $key. ', ';
+            }
+
+            var_dump($loser);
+
+        ?>
+    </p>
 </body>
