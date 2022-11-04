@@ -9,6 +9,28 @@ $famousMeals = [
     4 => ['name' => 'Jägerschnitzel mit Pommes',
         'winner' => [2019]]
 ];
+
+$loser=array();
+function keinGewinner($famousMeals)
+{
+    $year=[];
+    foreach ($famousMeals as $meals){
+        foreach ($meals['winner'] as $years){
+            $year[]= $years;
+        }
+    }
+    asort($year, SORT_NUMERIC);
+    $test= range(2000, 2022);
+    foreach ($test as $key) {
+        if(in_array($key, $year)){
+
+        }
+        else{
+            $loser[]=$key;
+        }
+    }
+    return $loser;
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -80,6 +102,15 @@ $famousMeals = [
                 }
             ?>
         </li>
-
     </ol>
+    <p>
+        <?php
+            foreach ( keinGewinner($famousMeals) as $key){
+                echo $key. ', ';
+            }
+
+            var_dump($loser);
+
+        ?>
+    </p>
 </body>
