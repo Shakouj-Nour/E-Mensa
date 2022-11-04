@@ -1,4 +1,9 @@
 <?php
+/**
+- Praktikum DBWT. Autoren:
+- Nour, Shakouj,3531635
+- Andreas Welly Octavianus, 3541951
+ */
     if($_SERVER["REQUEST_METHOD"]== "POST"){
 
         $name =trim($_POST['benutzer']??NULL);

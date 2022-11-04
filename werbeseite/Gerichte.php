@@ -1,4 +1,9 @@
 <?php
+/**
+- Praktikum DBWT. Autoren:
+- Nour, Shakouj,3531635
+- Andreas Welly Octavianus, 3541951
+ */
 $meals=[
     1 => ['img'=>' <img src="./img/Rindflisch.jpg"  alt="E-Mensa Logo" class="imgGerichte">'  ,
         'name'=> 'Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie nudeln',

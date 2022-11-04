@@ -1,4 +1,9 @@
 <?php
+/**
+- Praktikum DBWT. Autoren:
+- Nour, Shakouj,3531635
+- Andreas Welly Octavianus, 3541951
+ */
 $famousMeals = [
     1 => ['name' => 'Currywurst mit Pommes',
         'winner' => [2001, 2003, 2007, 2010, 2020]],
