@@ -14,7 +14,7 @@
 
 <body class="bodyRahmen">
 <header>
-
+<?php echo "Test";?>
     <div class="menu">
         <img src="logo.jpg"  alt="E-Mensa Logo" class="imgLogo"  >
         <div class="menuElemnte">
@@ -41,27 +41,29 @@
         <table>
             <thead>
             <tr>
-            <th></th>
+                <th>Img</th>
+            <th>Gerichte</th>
             <th>Preis intern</th>
             <th>Preis extern</th>
             </tr>
             </thead>
-            <tr>
-                <td>Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie nudeln</td>
-                <td>3,5€</td>
-                <td>6,2€</td>
-            </tr>
-            <tr>
-                <td>Spinatrisotto mit kleinen Samosateigecken und gemischter Salat</td>
-                <td>2,9€</td>
-                <td>5,3€</td>
-            </tr>
-            <tr class="table-unten">
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-            </tr>
+            <tbody>
+            <?php
+            include ('./Gerichte.php');
+            foreach ($meals as $key => $meal){
+                echo "
+                <tr>
+                <th>".$meal['img']."</th>
+                <th>".$meal['name']."</th>
+                <th>".$meal['preisIntern']."</th>
+                <th>".$meal['preisExtern']."</th>
+                </tr>
+                ";
+            }
+            ?>
+            </tbody>
         </table>
+
     </div>
     <h1> E-Mensa in Zahlen</h1>
     <div class="box" id="Zahlen">
