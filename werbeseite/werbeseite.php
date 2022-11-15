@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body class="bodyRahmen">
 <header>
 <?php echo "Test";
