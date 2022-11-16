@@ -178,7 +178,8 @@ if(!isset($_GET['language'])){
             <thead>
             <tr>
                 <td>Text</td>
-                <td><?php echo $lang['stern'][$_GET['language']]; ?></td>
+                <td><?php echo $lang['stern'][$_GET['language']];
+                ?></td>
                 <td>Author</td>
             </tr>
             </thead>
