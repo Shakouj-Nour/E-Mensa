@@ -4,6 +4,7 @@
 - Nour, Shakouj,3531635
 - Andreas Welly Octavianus, 3541951
  */
+include ("C:\Users\Shako\PhpstormProjects\E-Mensa\werbeseite\werbeseite.php");
     if($_SERVER["REQUEST_METHOD"]== "POST"){
 
         $name =trim($_POST['benutzer']??NULL);
@@ -42,7 +43,10 @@
             $data = "Name: ".$name. "\nE-Mail: ".$email. "\nSprache: ".$language."\n";
             fwrite($file, $data);
             fclose($file);
-            header("Location: http://localhost:63342/werbeseite/E-Mensa/werbeseite/werbeseite.php?status=erfolgreich%22");
+            $sql = "INSERT INTO Newsletter VALUES ()";
+            $result = mysqli_query($link, $sql);
+
+            header("Location: http://localhost:63342/E-Mensa/werbeseite/werbeseite.php?status=erfolgreich%22");
         }
     }
 

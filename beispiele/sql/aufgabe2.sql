@@ -33,5 +33,18 @@ CREATE TABLE `gericht_hat_allergen`(
 CREATE TABLE `gericht_hat_kategorie`(
                                         `gericht_id` int(8) not null,
                                         `kategorie_id` int(8) not null
+
 );
 SHOW COLUMNS FROM gericht;
+
+SELECT gericht_hat_allergen.code , g.name FROM  gericht g
+LEFT JOIN gericht_hat_allergen
+    on gericht_hat_allergen.gericht_id =g.id  ; #5,2
+
+SELECT COUNT(*) As Allergen  FROM allergen ;
+SELECT COUNT(*) AS kategorie FROM kategorie;
+SELECT COUNT(*) As gericht FROM gericht ;
+SELECT COUNT(*) AS g_hat_k FROM gericht_hat_kategorie ;
+SELECT COUNT(*) As g_hat_a FROM gericht_hat_allergen ;
+
+show COLUMNS from  gericht_hat_allergen;
