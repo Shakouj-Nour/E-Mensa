@@ -4,7 +4,7 @@
 - Nour, Shakouj,3531635
 - Andreas Welly Octavianus, 3541951
 -->
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>E-Mensa</title>
@@ -14,7 +14,23 @@
 
 <body class="bodyRahmen">
 <header>
-<?php echo "Test";?>
+<?php echo "Test";
+include ('./Gerichte.php');
+$link = mysqli_connect(
+    "localhost",
+    "root",
+    "root",
+    "emensawerbeseite",
+    "3306"
+);
+
+if (!$link) {
+    echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
+    exit();
+}
+$sql = "INSERT INTO besucher VALUES ()";
+$result = mysqli_query($link, $sql);
+?>
     <div class="menu">
         <img src="logo.jpg"  alt="E-Mensa Logo" class="imgLogo"  >
         <div class="menuElemnte">
@@ -48,8 +64,20 @@
             </tr>
             </thead>
             <tbody>
+
             <?php
-            include ('./Gerichte.php');
+            $sql="SELECT gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern AS Preis_extern,GROUP_CONCAT(gha.code) As G_code FROM gericht
+                    left join gericht_hat_allergen gha on gericht.id = gha.gericht_id
+                    Group By Name
+                    LIMIT 5;";
+            $result = mysqli_query($link, $sql);
+            $usedCod = [];
+
+            if (!$result) {
+                echo "Fehler während der Abfrage: ", mysqli_error($link);
+                exit();
+            }
+
             foreach ($meals as $key => $meal){
                 echo "
                 <tr>
@@ -60,24 +88,77 @@
                 </tr>
                 ";
             }
+            while ($row = mysqli_fetch_assoc($result)) { //nimmt eine row und packt jedes row in einem Array
+                echo '<tr >';
+                echo '<td >'.'</td>';
+                echo '<td >', $row['Name'] ,'</td>';
+                echo '<td>', $row['Preis_intern'] .'&euro; </td>';
+                echo '<td>', $row['Preis_intern'] .'&euro; </td>';
+                //echo $row['G_code'];
+                if ($row['G_code'] != null){$usedCod[] = explode(',',$row['G_code'],5);}
+                //print_r (explode(',',$row['G_code']));
+
+                 // weil es eine string
+                echo '<td>', $row['G_code'] ,'</td>';
+                echo '</tr>';
+            }
             ?>
             </tbody>
         </table>
+        <?php
+        //var_dump($usedCod);
+
+        foreach ($usedCod as $key => $codes){
+            foreach ($codes as $key =>$code){
+                // echo $key;
+                //echo $code;
+                $sql3 = "SELECT allergen.code, allergen.name , allergen.typ FROM allergen WHERE allergen.code = '$code'";
+                $result3 = mysqli_query($link, $sql3);
+
+                echo'<tr>';
+                while ($allerge = mysqli_fetch_assoc($result3)){
+
+                    echo'<td>'. $code . '=>' .$allerge['name'].' </td>';
+                    echo '<br>';
+                }
+                echo'</tr>';
+            }
+        }
+
+        ?>
 
     </div>
     <h1> E-Mensa in Zahlen</h1>
     <div class="box" id="Zahlen">
         <div class="numbers">
             <div class="zahl">
-                <h4>X</h4>
+                <?php
+                $sql ="SELECT COUNT(*) AS b_count FROM besucher";
+                $result = mysqli_query($link, $sql);
+                foreach ($result as $key => $res ){
+                    echo '<h4>'.$res['b_count'].'</h4>';
+                }
+                ?>
                 <h4>Besuche</h4>
             </div>
             <div class="zahl">
-                <h4>Y</h4>
+                <?php
+                $sql ="SELECT count(*) AS count FROM Newsletter";
+                $result = mysqli_query($link, $sql);
+                foreach ($result as $key => $res ){
+                    echo '<h4>'.$res['count'].'</h4>';
+                }
+                ?>
                 <h4>Anmeldungen</h4>
             </div>
             <div class="zahl">
-                <h4>Z</h4>
+                <?php
+                $sql ="SELECT COUNT(*) AS Anzahl_Der_Gerichte FROM gericht";
+                $result = mysqli_query($link, $sql);
+                foreach ($result as $key => $res ){
+                    echo '<h4>'.$res['Anzahl_Der_Gerichte'].'</h4>';
+                }
+                ?>
                 <h4>Speisen</h4>
             </div>
         </div>

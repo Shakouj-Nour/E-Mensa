@@ -8,8 +8,7 @@
 <body>
 <form method="GET"  >
     <label for="toTranslate">Translate:</label>
-    <input id="toTranslate" type="text" name="toTranslate" value="
-    <?php echo $_GET['toTranslate'] ?? NULL?>">
+    <input id="toTranslate" type="text" name="toTranslate" value="<?php echo $_GET['toTranslate'] ?? NULL?>">
     <input type="submit" value="suche" name="suche">
 </form>
 <?php

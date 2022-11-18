@@ -1,18 +1,39 @@
 <?php
 $link = mysqli_connect(
-    "127.0.0.1", // Host der Datenbank
-    "root", // Benutzername zur Anmeldung
-    "root", // Passwort zur Anmeldung
-    "emensawerbeseite", // Auswahl der Datenbank
-    3306);
+    "localhost",
+    "root",
+    "root",
+    "emensawerbeseite",
+    "3306"
+);
 
 if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
     exit();
 }
-$sql = "SELECT name FROM gericht";
+$sql = "SELECT * FROM gericht";
 $result = mysqli_query($link, $sql);
-while ($row = mysqli_fetch_row($result)) {
-    var_dump($row);
+
+if (!$result) {
+    echo "Fehler während der Abfrage: ", mysqli_error($link);
+    exit();
 }
 
+echo '<table style="border: blueviolet">';
+echo '<thead>';
+echo '<tr>';
+echo  "<td> id </td>" ;
+echo  "<td> name </td>" ;
+echo  "<td> beschreibung </td>" ;
+echo "</tr>";
+echo "</thead>";
+echo "<tbody>";
+while ($row = mysqli_fetch_assoc($result)) { //nimmt eine row und packt jedes row in einem Array
+    echo '<tr >';
+    echo '<td >', $row['id'] ,'</td>';
+    echo '<td>', $row['name'] ,'</td>';
+    echo '<td>', $row['beschreibung'] ,'</td>';
+    echo '</tr>';
+}
+echo "</tbody>";
+echo "</table>";

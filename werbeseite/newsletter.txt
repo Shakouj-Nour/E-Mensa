@@ -1,19 +1,4 @@
 
-Name: asd asd
-E-Mail: maxmustermann@gmail.com
-Sprache: de
-Name: asdl
-E-Mail: andreaswelly.2002@gmail.com
-Sprache: de
-Name: name
-E-Mail: son@gmail.com
-Sprache: de
-Name: n
-E-Mail: son@gmail.com
-Sprache: de
-Name: n
-E-Mail: son@gmail.com
-Sprache: de
-Name: n
+Name: uhiuh
 E-Mail: son@gmail.com
 Sprache: de
