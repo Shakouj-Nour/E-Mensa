@@ -4,7 +4,7 @@
 - Nour, Shakouj,3531635
 - Andreas Welly Octavianus, 3541951
  */
-include ("C:\Users\Shako\PhpstormProjects\E-Mensa\werbeseite\werbeseite.php");
+include ("C:\Users\andre\github\DBWT\E-Mensa\werbeseite\werbeseite.php");
     if($_SERVER["REQUEST_METHOD"]== "POST"){
         //Unnötige Leerzeichen aus dem eingegebenen Namen entfernen
         $name =trim($_POST['benutzer']??NULL);
@@ -41,6 +41,7 @@ include ("C:\Users\Shako\PhpstormProjects\E-Mensa\werbeseite\werbeseite.php");
             $fehler = "E-Mail ist nicht gultig";
         }
 
+        //wenn ein Fehler getreten
         if(isset($fehler)){
             header("Location: http://localhost:63342/werbeseite/E-Mensa/werbeseite/werbeseite.php?status=". $fehler);
         }

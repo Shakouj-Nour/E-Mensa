@@ -16,6 +16,7 @@
 <header>
 <?php echo "Test";
 include ('./Gerichte.php');
+//verbindung bauen
 $link = mysqli_connect(
     "localhost",
     "root",
@@ -94,9 +95,7 @@ $result = mysqli_query($link, $sql);
                 echo '<td >', $row['Name'] ,'</td>';
                 echo '<td>', $row['Preis_intern'] .'&euro; </td>';
                 echo '<td>', $row['Preis_intern'] .'&euro; </td>';
-                //echo $row['G_code'];
                 if ($row['G_code'] != null){$usedCod[] = explode(',',$row['G_code'],5);}
-                //print_r (explode(',',$row['G_code']));
 
                  // weil es eine string
                 echo '<td>', $row['G_code'] ,'</td>';
@@ -106,12 +105,9 @@ $result = mysqli_query($link, $sql);
             </tbody>
         </table>
         <?php
-        //var_dump($usedCod);
-
+        //Allergen und allergencode werden ausgegeben
         foreach ($usedCod as $key => $codes){
             foreach ($codes as $key =>$code){
-                // echo $key;
-                //echo $code;
                 $sql3 = "SELECT allergen.code, allergen.name , allergen.typ FROM allergen WHERE allergen.code = '$code'";
                 $result3 = mysqli_query($link, $sql3);
 
@@ -133,6 +129,7 @@ $result = mysqli_query($link, $sql);
         <div class="numbers">
             <div class="zahl">
                 <?php
+                //Anzahl der Besucher zahlen
                 $sql ="SELECT COUNT(*) AS b_count FROM besucher";
                 $result = mysqli_query($link, $sql);
                 foreach ($result as $key => $res ){
@@ -143,6 +140,7 @@ $result = mysqli_query($link, $sql);
             </div>
             <div class="zahl">
                 <?php
+                //anzahl der Anmeldungen zahlen
                 $sql ="SELECT count(*) AS count FROM Newsletter";
                 $result = mysqli_query($link, $sql);
                 foreach ($result as $key => $res ){
@@ -153,6 +151,7 @@ $result = mysqli_query($link, $sql);
             </div>
             <div class="zahl">
                 <?php
+                //anzahl der Gerichte zahlen
                 $sql ="SELECT COUNT(*) AS Anzahl_Der_Gerichte FROM gericht";
                 $result = mysqli_query($link, $sql);
                 foreach ($result as $key => $res ){
