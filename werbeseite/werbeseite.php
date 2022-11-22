@@ -62,6 +62,7 @@ $result = mysqli_query($link, $sql);
             <th>Gerichte</th>
             <th>Preis intern</th>
             <th>Preis extern</th>
+                <th>Allergien</th>
             </tr>
             </thead>
             <tbody>
@@ -78,17 +79,6 @@ $result = mysqli_query($link, $sql);
                 echo "Fehler während der Abfrage: ", mysqli_error($link);
                 exit();
             }
-
-            foreach ($meals as $key => $meal){
-                echo "
-                <tr>
-                <th>".$meal['img']."</th>
-                <th>".$meal['name']."</th>
-                <th>".$meal['preisIntern']."</th>
-                <th>".$meal['preisExtern']."</th>
-                </tr>
-                ";
-            }
             while ($row = mysqli_fetch_assoc($result)) { //nimmt eine row und packt jedes row in einem Array
                 echo '<tr >';
                 echo '<td >'.'</td>';
@@ -104,6 +94,10 @@ $result = mysqli_query($link, $sql);
             ?>
             </tbody>
         </table>
+    </div>
+    <br>
+    Allergien Namen :
+    <br>
         <?php
         //Allergen und allergencode werden ausgegeben
         foreach ($usedCod as $key => $codes){
@@ -120,10 +114,7 @@ $result = mysqli_query($link, $sql);
                 echo'</tr>';
             }
         }
-
         ?>
-
-    </div>
     <h1> E-Mensa in Zahlen</h1>
     <div class="box" id="Zahlen">
         <div class="numbers">
