@@ -19,7 +19,7 @@ include ('./Gerichte.php');
 $link = mysqli_connect(
     "localhost",
     "root",
-    "root",
+    "welly123",
     "emensawerbeseite",
     "3306"
 );
