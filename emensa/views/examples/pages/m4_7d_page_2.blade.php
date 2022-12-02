@@ -1,5 +1,9 @@
 @extends("examples.layout.m4_7d_layout")
 
+@section('title')
+    seite 2
+@endsection
+
 @section('header')
     <header>
         header 2

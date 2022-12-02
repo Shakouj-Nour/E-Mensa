@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+ <meta charset="UTF-8">
+ <title>E-Mensa</title>
+ <?php echo $this->yieldContent('head'); ?>
+</head>
+<body class="bodyRahmen">
+ <header>
+ <?php
+ //verbindung bauen
+ $link = mysqli_connect(
+ "localhost",
+ "root",
+ "root",
+ "emensawerbeseite",
+ "3306"
+ );
+
+ if (!$link) {
+ echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
+ exit();
+ }
+ $sql = "INSERT INTO besucher VALUES ()";
+ $result = mysqli_query($link, $sql);
+ ?>
+ <div class="menu">
+ <?php echo $this->yieldContent('logo'); ?>
+ <div class="menuElemnte">
+ <?php echo $this->yieldContent('navigation'); ?>
+ </div>
+ </div>
+ </header>
+ <div class="body-style">
+ <?php echo $this->yieldContent('mensa bild'); ?>
+ <?php echo $this->yieldContent('ankündigung schrift'); ?>
+ <div class="box" id="Ankündigung">
+ <p>
+ <?php echo $this->yieldContent('ankündigung'); ?>
+ </p>
+ </div>
+ <?php echo $this->yieldContent('speisen schrift'); ?>
+ <div class="box" id="Speisen">
+ <?php echo $this->yieldContent('speisen'); ?>
+ </div>
+ <?php echo $this->yieldContent('allergien'); ?>
+ <?php echo $this->yieldContent('wichtig'); ?>
+ </div>
+ <footer>
+ <?php echo $this->yieldContent('footer'); ?>
+ </footer>
+</body>

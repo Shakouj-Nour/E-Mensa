@@ -1,0 +1,105 @@
+
+
+.bodyRahmen{
+    border: 1px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.body-style{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.imgLogo{
+    width: 150px;
+    height: 70px;
+    border: 1px solid #135f1f;
+    margin-left : 1%;
+    margin-top: 14px;
+}
+.imgGerichte{
+    width: 90px;
+    height: 70px;
+    display: flex;
+}
+
+.menu{
+background-color:aquamarine;
+display:flex;
+ top: 2%;
+
+
+}
+.menuElemnte{
+
+margin-top:25px;
+margin-left: 7%;
+
+}
+a{
+    padding: 10px;
+    color: black;
+
+}
+.box{
+    border: 1px solid black;
+    border: 1px solid darkslategray;
+}
+
+/*table css*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+thead{
+    background-color: aquamarine;
+}
+th,td{
+    border: 1px solid black;
+    text-align: center;
+    /*
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    */
+}
+.numbers{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.zahl{
+    display: inline-grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+}
+body>ul{
+    margin-left: 30%;
+}
+/*css fuer newsletter form*/
+.newsletterform{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*css fuer footer*/
+
+footer>ul{
+    list-style-type: none;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+   grid-auto-flow: column;
+
+}
+footer>ul>li::before{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+footer>ul>li:not(:first-child):before{
+    content: "|";
+}
+footer{
+    background-color: #FFF;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}

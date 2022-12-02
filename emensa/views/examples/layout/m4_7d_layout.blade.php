@@ -2,7 +2,7 @@
 <html class="no-js" lang="DE">
 <head>
     <meta charset="utf-8">
-    <title>{{ $title }}</title>
+    <title>@yield('title')</title>
     <meta name="description" content="unused">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

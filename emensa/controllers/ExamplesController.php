@@ -29,9 +29,21 @@ class ExamplesController
             'gerichte' => $gerichte
         ]);
     }
-    public function m4_7d_layout(){
-        $page = ($_GET['no'] ?? 1);
-        $title = "Template title page : ".$page;
-        return view("examples.pages.m4_7d_page_$page", ['title' => $title]);
+    public function layout(RequestData $rd){
+        isset($_GET);
+        $no = $_GET["no"];
+
+        if ($no == 2) {
+            return view('examples.pages.m4_7d_page_2', [
+
+                'request' => $rd,
+                'url' => 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
+            ]);
+        }
+        return view('examples.pages.m4_7d_page_1', [
+
+            'request' => $rd,
+            'url' => 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
+        ]);
     }
 }

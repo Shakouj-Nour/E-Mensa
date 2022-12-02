@@ -1,0 +1,24 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+ seite 2
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('header'); ?>
+ <header>
+ header 2
+ </header>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('main'); ?>
+ <div>
+ main 2
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('footer'); ?>
+ <footer>
+ footer 2
+ </footer>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("examples.layout.m4_7d_layout"); } ?>
