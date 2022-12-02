@@ -36,7 +36,7 @@
         @yield('ankündigung schrift')
         <div class="box" id="Ankündigung">
             <p>
-            @yield('ankündigung')
+            @yield('text')
             </p>
         </div>
         @yield('speisen schrift')

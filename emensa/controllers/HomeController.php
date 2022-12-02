@@ -28,7 +28,6 @@ class HomeController
         return view('werbeseite', [
             'allergens' => $allergens,
             'gerichte' => $gerichte,
-            'text' => 'this is a paragraph',
 
             'rd' => $request
         ]);

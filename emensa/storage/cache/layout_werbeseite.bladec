@@ -36,7 +36,7 @@
  <?php echo $this->yieldContent('ankündigung schrift'); ?>
  <div class="box" id="Ankündigung">
  <p>
- <?php echo $this->yieldContent('ankündigung'); ?>
+ <?php echo $this->yieldContent('text'); ?>
  </p>
  </div>
  <?php echo $this->yieldContent('speisen schrift'); ?>
