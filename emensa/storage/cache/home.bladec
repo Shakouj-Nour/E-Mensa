@@ -11,6 +11,9 @@
  <ul>
  <li><a href="/demo/demo">Demo</a></li>
  <li><a href="/demo/dbconnect">Datenbank: Gerichte</a></li>
+ <li><a href="/examples/m4_7a_queryparameter">7a</a> </li> <?php /* m47a */ ?>
+ <li><a href="/examples/m4_7b_kategorie">7b</a></li>
+ <li><a href="/examples/m4_7c_gerichte">7c</a></li>
  </ul>
  <ul>
  <li><a href="/debug"><code class="language-php">phpinfo();</code></a></li>
