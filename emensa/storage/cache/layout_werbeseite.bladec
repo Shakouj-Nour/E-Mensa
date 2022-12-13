@@ -7,23 +7,7 @@
 </head>
 <body class="bodyRahmen">
  <header>
- <?php
- //verbindung bauen
- $link = mysqli_connect(
- "localhost",
- "root",
- "root",
- "emensawerbeseite",
- "3306"
- );
 
- if (!$link) {
- echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
- exit();
- }
- $sql = "INSERT INTO besucher VALUES ()";
- $result = mysqli_query($link, $sql);
- ?>
  <div class="menu">
  <?php echo $this->yieldContent('logo'); ?>
  <div class="menuElemnte">

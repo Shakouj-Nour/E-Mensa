@@ -3,7 +3,7 @@
 $link = mysqli_connect(
     "localhost",
     "root",
-    "root",
+    "welly123",
     "emensawerbeseite",
     "3306"
 );
@@ -12,9 +12,9 @@ if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
     exit();
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $e_name = (!isSet( $_POST['e_name'] ) )? $e_name= "empty" : $_POST['e_name'];
-    $e_name =htmlspecialchars(mysqli_real_escape_string($link,$_POST['e_name']));
+    $e_name =htmlspecialchars(mysqli_real_escape_string($link,(!isSet( $_POST['e_name'] ) )? $e_name= "empty" : $_POST['e_name']));
     $e_mail = mysqli_real_escape_string($link,htmlspecialchars( $_POST['e_mail'])) ;
     $w_name = mysqli_real_escape_string($link,htmlspecialchars($_POST['w_name']))  ;
     $w_beschreibung = mysqli_real_escape_string($link,htmlspecialchars($_POST['w_beschreibung']))  ;

@@ -7,7 +7,7 @@
  */
 
 return array(
-    '/'             => "HomeController@werbeseite",
+    '/'             => "HomeController@index",
     "/demo"         => "DemoController@demo",
     '/dbconnect'    => 'DemoController@dbconnect',
     '/debug'        => 'HomeController@debug',
@@ -21,5 +21,6 @@ return array(
     '/m4_7b_kategorie' => 'ExamplesController@m4_7b_kategorie',
     '/m4_7c_gerichte' => 'ExamplesController@m4_7c_gerichte',
     '/page' => 'ExamplesController@layout',
+    '/werbeseite' => 'HomeController@werbeseite',
 
 );

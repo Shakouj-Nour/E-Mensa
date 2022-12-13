@@ -45,7 +45,7 @@
             @foreach($gerichte as $g  )
                 <tr>
                     <td>.</td>
-                    <td>{{$g["Name"]}}"</td>
+                    <td>{{$g["Name"]}}</td>
                     <td>{{$g["Preis_intern"]}} &euro;</td>
                     <td>{{$g["Preis_extern"]}} &euro;</td>
                     <td>{{$g["G_code"]}}</td>
