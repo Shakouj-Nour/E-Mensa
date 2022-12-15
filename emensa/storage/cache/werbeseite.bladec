@@ -2,6 +2,7 @@
 
 <?php $this->startSection('head'); ?>
  <link rel="stylesheet" href="/css/style.css">
+
 <?php $this->stopSection(); ?>
 
 <?php $this->startSection('logo'); ?>

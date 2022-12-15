@@ -2,8 +2,21 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/kategorie.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 class ExamplesController
 {
+    public function logger(){
+// create a log channel
+        $log = new Logger('name');
+        $log->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
+
+// add records to the log
+        $log->warning('FOO');
+        $log->error('BAR');
+    }
     public function m4_7a_queryparameter(RequestData $rd) {
         /*
            Wenn Sie hier landen:

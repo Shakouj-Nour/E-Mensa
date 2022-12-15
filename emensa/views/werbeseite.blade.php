@@ -2,6 +2,7 @@
 
 @section('head')
     <link rel="stylesheet" href="/css/style.css">
+
 @endsection
 
 @section('logo')

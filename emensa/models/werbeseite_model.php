@@ -2,7 +2,8 @@
 function werbeseite_gericht(){
     try{
         $link = connectdb();
-        $sql_gerichte = "SELECT gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern AS Preis_extern,GROUP_CONCAT(gha.code) As G_code FROM gericht
+        $sql_gerichte = "SELECT gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern 
+                    AS Preis_extern,GROUP_CONCAT(gha.code) As G_code FROM gericht
                     left join gericht_hat_allergen gha on gericht.id = gha.gericht_id
                     Group By Name
                     LIMIT 5;";

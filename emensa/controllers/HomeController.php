@@ -2,6 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/werbeseite_model.php');
 
+
+
 /* Datei: controllers/HomeController.php */
 class HomeController
 {
@@ -15,7 +17,15 @@ class HomeController
     public function werbeseite(RequestData $request) {
         $gerichte = werbeseite_gericht();
         $allergens = werbeseite_allergen();
-
+        $logger = logger();
+        $anmeldung = 0;
+        if($anmeldung) {
+            $logger->warning('Login fail');
+        }
+        else{
+            $logger->info('Login success');
+        }
+        $logger->info('Werbeseite reached');
 
         return view('werbeseite', [
             'allergens' => $allergens,

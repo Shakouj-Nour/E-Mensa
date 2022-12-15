@@ -19,7 +19,7 @@ include ('./Gerichte.php');
 $link = mysqli_connect(
     "localhost",
     "root",
-    "welly123",
+    "root",
     "emensawerbeseite",
     "3306"
 );
@@ -190,5 +190,4 @@ $result = mysqli_query($link, $sql);
     </ul>
 </footer>
 </body>
-
 </html>

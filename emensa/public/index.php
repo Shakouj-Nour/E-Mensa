@@ -5,6 +5,10 @@ const PUBLIC_DIRNAME = "public";
 const CONFIG_WEBROUTES = "/../config/web.php";
 const CONFIG_DB = "/../config/db.php";
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 // DEMO
 try {
     if (!file_exists(realpath($_SERVER['DOCUMENT_ROOT'] . "/../vendor/autoload.php"))) {
@@ -276,4 +280,11 @@ function view($viewname, $viewargs = array())
     $blade = new BladeOne($views, $cache, BladeOne::MODE_DEBUG);
 
     return $blade->run($viewname, $viewargs);
+}
+
+function logger(){
+    $logger = new Monolog\Logger("werbeseite");
+    $LOG_PATH = dirname(__DIR__) . '/storage/logs/log.txt';
+
+    return $logger->pushHandler(new \Monolog\Handler\StreamHandler($LOG_PATH, Logger::DEBUG));
 }
