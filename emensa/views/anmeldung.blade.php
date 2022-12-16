@@ -25,6 +25,9 @@
                 <div>
                     <input name="b_passwort" id="b_passwort" type="password"
                            class="demo-input-box">
+                    @if(!$check_password)
+                        <span class="fehler">Ihre Passwort war falsch</span>
+                    @endif
                 </div>
             </div>
             <div class=field-column>

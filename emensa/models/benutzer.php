@@ -29,8 +29,9 @@ function login_controller($rd){
         if($userLoginDataCheck === '1'){
             // update user
             //$sqlName = $link ->query("SELECT b_name as name FROM tbl_benutzeren WHERE b_passwort ='$b_passwort' AND b_email ='b_email' ")-> fetch_assoc()['name'];
-            $stmt = $link->prepare("UPDATE tbl_benutzeren SET b_anzahlAnmeldung = tbl_benutzeren.b_anzahlAnmeldung + 1, b_letzteAnmeldung = ? WHERE b_email = ?");
-            $stmt->bind_param("ss", $dateTime, $_POST['b_email']);
+            $stmt = $link->prepare("CALL update_anmeldung(?, ?)");
+            //$stmt = $link->prepare("UPDATE tbl_benutzeren SET b_anzahlAnmeldung = tbl_benutzeren.b_anzahlAnmeldung + 1, b_letzteAnmeldung = ? WHERE b_email = ?");
+            $stmt->bind_param("ss", $userID, $dateTime);
             $stmt->execute();
             //$sqlName->exccute();
             $link -> commit();
