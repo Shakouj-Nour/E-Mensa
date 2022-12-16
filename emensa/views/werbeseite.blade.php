@@ -15,6 +15,14 @@
     <a href="#Zahlen">Zahlen</a>
     <a href="#Kontakt">Kontakt</a>
     <a href="#Wichtig">Wichtig für uns</a>
+
+    @if($username !== '')
+        <a class="melden" href="/abmeldung">Abmelden</a>
+        <span>Angemeldet als {{ $username }}</span>
+    @else
+        <a class="melden" href="/anmeldung">Jetzt anmelden</a>
+    @endif
+
 @endsection
 
 @section('mensa bild')

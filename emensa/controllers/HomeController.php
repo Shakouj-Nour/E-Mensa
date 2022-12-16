@@ -28,6 +28,7 @@ class HomeController
         return view('werbeseite', [
             'allergens' => $allergens,
             'gerichte' => $gerichte,
+            'username' => $_SESSION['username'] ?? '',
 
             'rd' => $request
         ]);
@@ -57,7 +58,7 @@ class HomeController
     {
         $_SESSION['username'] = '';
         $_SESSION['check_passwort'] = true;
-        header('Location: /mywebsite');
+        header('Location: /werbeseite');
         logger()->info('Benutzer ist abgemeldet');
     }
 }

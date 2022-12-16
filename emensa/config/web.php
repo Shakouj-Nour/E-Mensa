@@ -8,7 +8,7 @@ session_start();
  */
 
 return array(
-    '/'             => "HomeController@anmeldung",
+    '/'             => "HomeController@werbeseite",
     "/demo"         => "DemoController@demo",
     '/dbconnect'    => 'DemoController@dbconnect',
     '/debug'        => 'HomeController@debug',
