@@ -17,15 +17,8 @@ class HomeController
     public function werbeseite(RequestData $request) {
         $gerichte = werbeseite_gericht();
         $allergens = werbeseite_allergen();
-        $logger = logger();
-        $anmeldung = 0;
-        if($anmeldung) {
-            $logger->warning('Login fail');
-        }
-        else{
-            $logger->info('Login success');
-        }
-        $logger->info('Werbeseite reached');
+
+        logger()->info('Werbeseite reached');
 
         return view('werbeseite', [
             'allergens' => $allergens,
@@ -33,5 +26,20 @@ class HomeController
 
             'rd' => $request
         ]);
+    }
+
+    public function anmeldung_verifizieren(RequestData $rd){
+        //muss noch bearbeiten
+        $login = 0; //fuer die Pruefung der Anmeldung
+        if($login){
+            logger()->info('login successful');
+        }
+        else{
+            logger()->warning('login failed');
+        }
+    }
+    public function abmeldung(RequestData $rd){
+        //muss noch bearbeiten
+        logger()->info('logged out');
     }
 }

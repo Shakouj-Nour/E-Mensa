@@ -283,7 +283,7 @@ function view($viewname, $viewargs = array())
 }
 
 function logger(){
-    $logger = new Monolog\Logger("werbeseite");
+    $logger = new Logger("werbeseite");
     $LOG_PATH = dirname(__DIR__) . '/storage/logs/log.txt';
 
     return $logger->pushHandler(new \Monolog\Handler\StreamHandler($LOG_PATH, Logger::DEBUG));
