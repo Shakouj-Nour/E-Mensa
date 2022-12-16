@@ -1,4 +1,2 @@
-[2022-12-15T15:48:07.346662+00:00] werbeseite.WARNING:  [] []
-[2022-12-15T15:48:07.347504+00:00] werbeseite.INFO:  [] []
-[2022-12-15T15:52:13.747506+00:00] werbeseite.INFO: Login success [] []
-[2022-12-15T15:52:13.748561+00:00] werbeseite.INFO: Werbeseite reached [] []
+[2022-12-16T13:25:39.455702+00:00] werbeseite.INFO: Werbeseite reached [] []
+[2022-12-16T13:36:49.126506+00:00] werbeseite.INFO: Werbeseite reached [] []

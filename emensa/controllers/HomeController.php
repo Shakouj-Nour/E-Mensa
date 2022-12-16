@@ -28,6 +28,11 @@ class HomeController
         ]);
     }
 
+    public function anmeldung(RequestData $rd){
+        return view('',[
+
+        ]);
+    }
     public function anmeldung_verifizieren(RequestData $rd){
         //muss noch bearbeiten
         $login = 0; //fuer die Pruefung der Anmeldung
