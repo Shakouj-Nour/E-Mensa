@@ -53,7 +53,7 @@
             <tbody>
             @foreach($gerichte as $g  )
                 <tr>
-                    <td>.</td>
+                    <td><img src="img/{{ $g['bild'] ?? '00_image_missing.jpg' }}" class="gerichtbild"></td>
                     <td>{{$g["Name"]}}</td>
                     <td>{{$g["Preis_intern"]}} &euro;</td>
                     <td>{{$g["Preis_extern"]}} &euro;</td>
