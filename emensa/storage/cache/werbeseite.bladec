@@ -6,7 +6,7 @@
 <?php $this->stopSection(); ?>
 
 <?php $this->startSection('logo'); ?>
- <img src="/img/logo.jpg"  alt="E-Mensa Logo" class="imgLogo"  >
+ <img src="/img/logo.jpg"  alt="E-Mensa Logo" class="imgLogo" >
 <?php $this->stopSection(); ?>
 
 <?php $this->startSection('navigation'); ?>
@@ -15,6 +15,8 @@
  <a href="#Zahlen">Zahlen</a>
  <a href="#Kontakt">Kontakt</a>
  <a href="#Wichtig">Wichtig für uns</a>
+ <a href="/bewertungen">Bewertungen</a>
+ <a href="/bewerten">Bewerten</a>
 
  <?php if($username !== ''): ?>
  <a class="melden" href="/abmeldung">Abmelden</a>
@@ -54,11 +56,14 @@
  <?php $__currentLoopData = $gerichte; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $g): $loop = $this->incrementLoopIndices();  ?>
  <tr>
- <td>.</td>
+ <td><img src="img/gerichte/<?php echo \htmlentities($g['bild'] ?? '00_image_missing.jpg'??'', ENT_QUOTES, 'UTF-8', false); ?>" class="gerichtbild"></td>
  <td><?php echo \htmlentities($g["Name"]??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td><?php echo \htmlentities($g["Preis_intern"]??'', ENT_QUOTES, 'UTF-8', false); ?> &euro;</td>
  <td><?php echo \htmlentities($g["Preis_extern"]??'', ENT_QUOTES, 'UTF-8', false); ?> &euro;</td>
  <td><?php echo \htmlentities($g["G_code"]??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <?php if($username != ''): ?>
+ <td><a href="/bewerten">bewerten</a></td>
+ <?php endif; ?>
  </tr>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
 

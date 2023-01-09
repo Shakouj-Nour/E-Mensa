@@ -58,7 +58,29 @@ class HomeController
     {
         $_SESSION['username'] = '';
         $_SESSION['check_passwort'] = true;
+        unset($_SESSION['logged_in']);//end session
         header('Location: /werbeseite');
         logger()->info('Benutzer ist abgemeldet');
+    }
+
+    public function bewerten(RequestData $rd)
+    {
+        if(isLoggedIn()) {
+            $gerichte = werbeseite_gericht();
+            return view('bewerten', [
+                'gerichte' => $gerichte,
+
+                'rd' => $rd
+            ]);
+        }else{
+            header('Location: /anmeldung');
+        }
+    }
+
+    public function bewertungen(RequestData $rd){
+        $review = werbeseite_review();
+        return view('bewertungen', [
+            'review' => $review
+        ]);
     }
 }

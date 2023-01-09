@@ -6,7 +6,7 @@
 @endsection
 
 @section('logo')
-    <img src="/img/logo.jpg"  alt="E-Mensa Logo" class="imgLogo"  >
+    <img src="/img/logo.jpg"  alt="E-Mensa Logo" class="imgLogo" >
 @endsection
 
 @section('navigation')
@@ -15,6 +15,8 @@
     <a href="#Zahlen">Zahlen</a>
     <a href="#Kontakt">Kontakt</a>
     <a href="#Wichtig">Wichtig für uns</a>
+    <a href="/bewertungen">Bewertungen</a>
+    <a href="/bewerten">Bewerten</a>
 
     @if($username !== '')
         <a class="melden" href="/abmeldung">Abmelden</a>
@@ -53,11 +55,14 @@
             <tbody>
             @foreach($gerichte as $g  )
                 <tr>
-                    <td><img src="img/{{ $g['bild'] ?? '00_image_missing.jpg' }}" class="gerichtbild"></td>
+                    <td><img src="img/gerichte/{{ $g['bild'] ?? '00_image_missing.jpg' }}" class="gerichtbild"></td>
                     <td>{{$g["Name"]}}</td>
                     <td>{{$g["Preis_intern"]}} &euro;</td>
                     <td>{{$g["Preis_extern"]}} &euro;</td>
                     <td>{{$g["G_code"]}}</td>
+                    @if($username != '')
+                        <td><a href="/bewerten">bewerten</a></td>
+                    @endif
                 </tr>
             @endforeach
 

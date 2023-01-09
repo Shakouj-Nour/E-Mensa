@@ -37,10 +37,14 @@ function login_controller($rd){
             $link -> commit();
             $stmt->close();
             //$sqlName->close();
+            $_SESSION['logged_in'] = true;//set session
+
 
         }else{
 
-            $stmt = $link->prepare("UPDATE tbl_benutzeren SET tbl_benutzeren.b_anzahlfehler = tbl_benutzeren.b_anzahlfehler + 1, b_letzterFehler = ? WHERE b_email = ?");
+            $stmt = $link->prepare("UPDATE tbl_benutzeren 
+            SET tbl_benutzeren.b_anzahlfehler = tbl_benutzeren.b_anzahlfehler + 1, b_letzterFehler = ? 
+            WHERE b_email = ?");
             $stmt->bind_param("ss", $dateTime, $_POST['b_email']);
             $stmt->execute();
             $link -> commit();
@@ -53,7 +57,8 @@ function login_controller($rd){
         // register user
 
         /* Prepared statement, stage 1: prepare */
-        $stmt = $link->prepare("INSERT INTO tbl_benutzeren (b_name, b_email, b_passwort, b_admin, b_anzahlfehler, b_anzahlAnmeldung, b_letzteAnmeldung, b_letzteAnmeldung, b_letzterFehler)
+        $stmt = $link->prepare("INSERT INTO tbl_benutzeren (b_name, b_email, b_passwort, b_admin, b_anzahlfehler, 
+        b_anzahlAnmeldung, b_letzteAnmeldung, b_letzteAnmeldung, b_letzterFehler)
         VALUES (?, ?, ?, 0, 0, 1, ?, NULL)");
 
         /* Prepared statement, stage 2: bind and execute */
@@ -64,5 +69,19 @@ function login_controller($rd){
 
     }
     return true;
+}
+/**
+ * @return void
+ * initialise Session
+ * if user isn't logged in, redirect to login page
+ */
+function isLoggedIn() {
+    // Start a session if one is not already active
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Check if the 'logged_in' key is set in the session data
+    return isset($_SESSION['logged_in']);
 }
 

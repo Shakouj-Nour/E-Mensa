@@ -2,7 +2,7 @@
 function werbeseite_gericht(){
     try{
         $link = connectdb();
-        $sql_gerichte = "SELECT gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern 
+        $sql_gerichte = "SELECT gericht.bildname as bild,gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern 
                     AS Preis_extern,GROUP_CONCAT(gha.code) As G_code FROM gericht
                     left join gericht_hat_allergen gha on gericht.id = gha.gericht_id
                     Group By Name
@@ -36,5 +36,21 @@ function werbeseite_allergen(){
     }
     finally {
         return $allergens;
+    }
+}
+function werbeseite_review(){
+    try{
+        $link = connectdb();
+        $sql_review = "SELECT * FROM bewertung";
+        $review = mysqli_query($link, $sql_review);
+
+    }catch (Exception $ex) {
+        $review = array(
+            'id'=>'-1',
+            'error'=>true,
+            'name' => 'Datenbankfehler '.$ex->getCode());
+    }
+    finally {
+        return $review;
     }
 }

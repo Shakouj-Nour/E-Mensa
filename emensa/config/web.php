@@ -19,6 +19,8 @@ return array(
     '/anmeldung_verfizieren'=>"HomeController@anmeldung_verfizieren",
     '/abmeldung'=>"HomeController@abmeldung",
     '/werbeseite'=>"HomeController@werbeseite",
+    '/bewerten' => 'HomeController@bewerten',
+    '/bewertungen' => 'HomeController@bewertungen',
 
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',

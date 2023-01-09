@@ -1,4 +1,9 @@
+.gerichtbild{
+    width: 150px;
+    height: 70px;
+    border: 1px solid #135f1f;
 
+}
 
 .bodyRahmen{
     border: 1px solid black;
@@ -102,4 +107,7 @@ footer{
     bottom: 0px;
     width: 100%;
     text-align: center;
+}
+.form-head{
+    font-weight: bold;
 }
