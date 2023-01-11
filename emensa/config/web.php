@@ -15,13 +15,6 @@ return array(
     '/error'        => 'DemoController@error',
     '/requestdata'   => 'DemoController@requestdata',
     '/log'        => 'ExamplesController@logger',
-    '/anmeldung' =>"HomeController@anmeldung",
-    '/anmeldung_verifizieren'=>"HomeController@anmeldung_verfizieren",
-    '/abmeldung'=>"HomeController@abmeldung",
-    '/werbeseite'=>"HomeController@werbeseite",
-    '/bewerten' => 'HomeController@bewerten',
-    '/bewertungen' => 'HomeController@bewertungen',
-    '/bewerten_verifizieren'=>"HomeController@bewerten_verifizieren",
 
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',
@@ -30,4 +23,15 @@ return array(
     '/m4_7c_gerichte' => 'ExamplesController@m4_7c_gerichte',
     '/page' => 'ExamplesController@layout',
 
+    // Werbeseite
+    '/anmeldung' =>"HomeController@anmeldung",
+    '/anmeldung_verifizieren'=>"HomeController@anmeldung_verfizieren",
+    '/abmeldung'=>"HomeController@abmeldung",
+    '/benutzer_verifizieren' => 'HomeController@benutzer_verifizieren',
+    '/werbeseite'=>"HomeController@werbeseite",
+    '/bewertung' => 'HomeController@bewertung',
+    '/bewertungen' => 'HomeController@bewertungen',
+    '/bewerten_verifizieren'=>"HomeController@bewerten_verifizieren",
+    '/meinebewertungen' => "HomeController@meinebewertungen",
+    '/delete_bewertung'=>"HomeController@delete_bewertung"
 );

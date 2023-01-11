@@ -18,25 +18,30 @@ function login_controller($rd){
     mysqli_begin_transaction($link, MYSQLI_TRANS_START_READ_WRITE);
 
     // Check if user exists
-    $sql = "SELECT b_id FROM tbl_benutzeren WHERE tbl_benutzeren.b_email = '$b_email' ";
-    $userID = $link->query($sql)->fetch_assoc()['b_id'];
+    $sql = "SELECT b_id, b_admin FROM tbl_benutzeren WHERE tbl_benutzeren.b_email = '$b_email' ";
+    $res = $link->query($sql)->fetch_assoc();
+
+    $userID = $res['b_id'];
+    $admin = $res['b_admin'];
+
     $link -> commit();
 
     if(isset($userID)){
+        $_SESSION['userId'] = $userID;
+        $_SESSION['admin'] = $admin;
+
         // login user
         $userLoginDataCheck = $link->query("SELECT COUNT(1) as res FROM tbl_benutzeren WHERE b_passwort = '$b_passwort' AND b_email = '$b_email'")->fetch_assoc()['res'];
         $link -> commit();
+
         if($userLoginDataCheck === '1'){
             // update user
-            //$sqlName = $link ->query("SELECT b_name as name FROM tbl_benutzeren WHERE b_passwort ='$b_passwort' AND b_email ='b_email' ")-> fetch_assoc()['name'];
             $stmt = $link->prepare("CALL update_anmeldung(?, ?)");
-            //$stmt = $link->prepare("UPDATE tbl_benutzeren SET b_anzahlAnmeldung = tbl_benutzeren.b_anzahlAnmeldung + 1, b_letzteAnmeldung = ? WHERE b_email = ?");
             $stmt->bind_param("ss", $userID, $dateTime);
             $stmt->execute();
-            //$sqlName->exccute();
             $link -> commit();
             $stmt->close();
-            //$sqlName->close();
+
             $_SESSION['logged_in'] = true;//set session
 
 
@@ -67,6 +72,13 @@ function login_controller($rd){
         $link -> commit();
         $stmt->close();
 
+        // Get userID
+        $sql = "SELECT b_id, b_admin FROM tbl_benutzeren WHERE tbl_benutzeren.b_email = '$b_email' ";
+        $register = $link->query($sql)->fetch_assoc();
+        $userID = $register['id'];
+        $admin = $register['admin'];
+        $_SESSION['userId'] = $userID;
+        $_SESSION['admin'] = $admin;
     }
     return true;
 }

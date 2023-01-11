@@ -64,14 +64,31 @@ class HomeController
         logger()->info('Benutzer ist abgemeldet');
     }
 
-    public function bewerten(RequestData $rd)
+    public function benutzer_verifizieren(RequestData $rd){
+        $_SESSION['gerichtId'] = $rd->query['gerichtId'];
+
+        if(isset($_SESSION['username']) && $_SESSION['username'] !== ''){
+            $gerichtId = $_SESSION['gerichtId'];
+            header("Location: /bewertung?gerichtId=$gerichtId");
+        }else{
+            header('Location: /anmeldung');
+        }
+    }
+
+    public function bewertung(RequestData $rd)
     {
+        $res = db_get_gericht_bildname_name($_SESSION['gerichtId']);
+        $gericht_img = $res['bildname'] ?? '00_image_missing.jpg';
+        $gericht_img = "img/gerichte/$gericht_img";
+        $gericht_name = $res['name'];
         if(isLoggedIn()) {
             $gerichte = werbeseite_gericht();
-            return view('bewerten', [
-                'gerichte' => $gerichte,
+            return view('bewertung', [
                 'check_bemerkung' => $_SESSION['check_bemerkung'] ?? true,
-                'rd' => $rd
+                'gerichte' => $gerichte,
+
+                'gericht_img' => $gericht_img,
+                'gericht_name' => $gericht_name
             ]);
         }else{
             header('Location: /anmeldung');
@@ -83,7 +100,8 @@ class HomeController
         if($success){
             header('Location: /werbeseite');
         }else{
-            header('Location: /bewerten');
+            $gerichtId = $_SESSION['gerichtId'];
+            header('Location: /bewertung?gerichtId=$gerichtId');
         }
     }
 
@@ -96,4 +114,17 @@ class HomeController
             'gericht' => $gericht
         ]);
     }
+
+    public function meinebewertungen(RequestData $rd){
+        $bewertungen = db_get_benutzer_bewertung();
+        return view('meinebewertungen', [
+            'bewertungen' => $bewertungen
+        ]);
+    }
+
+    public function delete_bewertung(RequestData $rd){
+        db_delete_bewertung($rd->query['bewertung_id']);
+        header("Location: /meinebewertungen");
+    }
 }
+

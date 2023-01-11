@@ -15,8 +15,7 @@
     <a href="#Zahlen">Zahlen</a>
     <a href="#Wichtig">Wichtig für uns</a>
     <a href="/bewertungen">Bewertungen</a>
-    <a href="/bewerten">Bewerten</a>
-    <a href="/meinebewertungen">Meine Bewertungen</a>
+
 
     @if($username !== '')
         <a class="melden" href="/abmeldung">Abmelden</a>
@@ -50,6 +49,9 @@
                 <th>Preis intern</th>
                 <th>Preis extern</th>
                 <th>Allergien</th>
+                @if($username != '')
+                    <th>Link zur Bewertung</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -61,7 +63,7 @@
                     <td>{{$g["Preis_extern"]}} &euro;</td>
                     <td>{{$g["G_code"]}}</td>
                     @if($username != '')
-                        <td><a href="/bewerten">bewerten</a></td>
+                        <td><a href='/benutzer_verifizieren?gerichtId={{$g['gericht_id']}}'>bewerten</a></td>
                     @endif
                 </tr>
             @endforeach

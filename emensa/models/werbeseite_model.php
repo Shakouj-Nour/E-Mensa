@@ -2,7 +2,7 @@
 function werbeseite_gericht(){
     try{
         $link = connectdb();
-        $sql_gerichte = "SELECT gericht.bildname as bild,gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern 
+        $sql_gerichte = "SELECT gericht.id as gericht_id,gericht.bildname as bild,gericht.name AS Name,gericht.preis_intern AS Preis_intern,gericht.preis_extern 
                     AS Preis_extern,GROUP_CONCAT(gha.code) As G_code FROM gericht
                     left join gericht_hat_allergen gha on gericht.id = gha.gericht_id
                     Group By Name
@@ -41,7 +41,11 @@ function werbeseite_allergen(){
 function werbeseite_review(){
     try{
         $link = connectdb();
-        $sql_review = "SELECT * FROM bewertung ORDER BY zeit DESC ";
+        $sql_review = "SELECT b.id as bewertung_id,  g.name as gericht, bn.b_name as name, highlight, bemerkung, sterne, zeit FROM bewertung as b
+            JOIN tbl_benutzeren bn on bn.b_id = b.b_id
+            JOIN gericht as g on g.id = b.gericht_id
+            ORDER BY b.zeit DESC 
+            LIMIT 30";
         $review = mysqli_query($link, $sql_review);
 
     }catch (Exception $ex) {

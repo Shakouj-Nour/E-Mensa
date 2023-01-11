@@ -1,31 +1,38 @@
 <html>
 <head>
     <title>Bewerten</title>
+    <style>
+        .gericht_container{
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: normal;
+        }
+        .gericht_container > img {
+            max-height: 5%;
+            max-width: 15%;
+        }
+    </style>
 </head>
 <body>
+<div class="welcome_container">
+    <h1>Haben unsere Gerichte Ihnen gefallen?</h1>
+</div>
+<div class="gericht_container">
+    <img alt="gerichte" src="{{$gericht_img}}">
+    <h3>{{$gericht_name}}</h3>
+</div>
 <form action="/bewerten_verifizieren" method="post" id="bewerten">
     <div>
-        <div class="form-head">Bewertung</div>
+        <div class="form-head"></div>
         <div class="field-column">
-            <div>
-                <label for="gericht">Gericht</label>
-            </div>
-            <div>
-                <select class="form-control" name="gericht" required="required" aria-required="true">
-                    @foreach($gerichte as $g)
-                        <option
-                                value="{{$g["Name"]}}" selected="true">
-                            {{$g["Name"]}}</option>
-                    @endforeach
-                </select>
-            </div>
             <div>
                 <label for="bemerkung">bemerkung</label>
             </div>
             <div>
-                <textarea type="textarea" class="form-control" name="bemerkung" access="false" id="bemerkung" minlength="20" required></textarea>
+                <textarea type="textarea" class="form-control" name="bemerkung" access="false" id="bemerkung" minlength="5" required></textarea>
                 @if(!$check_bemerkung)
-                    <span class="fehler">Eingabe muss mindestens 5 Wort sein</span>
+                    <span class="fehler">Eingabe muss mindestens 5 Zeichen sein</span>
                 @endif
             </div>
             <div>
