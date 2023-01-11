@@ -16,11 +16,12 @@ return array(
     '/requestdata'   => 'DemoController@requestdata',
     '/log'        => 'ExamplesController@logger',
     '/anmeldung' =>"HomeController@anmeldung",
-    '/anmeldung_verfizieren'=>"HomeController@anmeldung_verfizieren",
+    '/anmeldung_verifizieren'=>"HomeController@anmeldung_verfizieren",
     '/abmeldung'=>"HomeController@abmeldung",
     '/werbeseite'=>"HomeController@werbeseite",
     '/bewerten' => 'HomeController@bewerten',
     '/bewertungen' => 'HomeController@bewertungen',
+    '/bewerten_verifizieren'=>"HomeController@bewerten_verifizieren",
 
     // Erstes Beispiel:
     '/m4_7a_queryparameter' => 'ExamplesController@m4_7a_queryparameter',

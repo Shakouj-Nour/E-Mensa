@@ -2,6 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/werbeseite_model.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/bewertung.php');
 
 
 
@@ -69,7 +70,7 @@ class HomeController
             $gerichte = werbeseite_gericht();
             return view('bewerten', [
                 'gerichte' => $gerichte,
-
+                'check_bemerkung' => $_SESSION['check_bemerkung'] ?? true,
                 'rd' => $rd
             ]);
         }else{
@@ -77,10 +78,22 @@ class HomeController
         }
     }
 
+    public function bewerten_verifizieren(RequestData $rd){
+        $success = bewertung_controller($rd);
+        if($success){
+            header('Location: /werbeseite');
+        }else{
+            header('Location: /bewerten');
+        }
+    }
+
+
     public function bewertungen(RequestData $rd){
         $review = werbeseite_review();
+        $gericht = werbeseite_gericht();
         return view('bewertungen', [
-            'review' => $review
+            'review' => $review,
+            'gericht' => $gericht
         ]);
     }
 }

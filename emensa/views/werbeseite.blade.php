@@ -13,10 +13,10 @@
     <a href="#Ankündigung" class="link">Ankündigung</a>
     <a href="#Speisen">Speisen</a>
     <a href="#Zahlen">Zahlen</a>
-    <a href="#Kontakt">Kontakt</a>
     <a href="#Wichtig">Wichtig für uns</a>
     <a href="/bewertungen">Bewertungen</a>
     <a href="/bewerten">Bewerten</a>
+    <a href="/meinebewertungen">Meine Bewertungen</a>
 
     @if($username !== '')
         <a class="melden" href="/abmeldung">Abmelden</a>

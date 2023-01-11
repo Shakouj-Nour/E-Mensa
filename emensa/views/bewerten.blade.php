@@ -3,7 +3,7 @@
     <title>Bewerten</title>
 </head>
 <body>
-<form action="/bewerten" method="post" id="bewerten">
+<form action="/bewerten_verifizieren" method="post" id="bewerten">
     <div>
         <div class="form-head">Bewertung</div>
         <div class="field-column">
@@ -11,9 +11,11 @@
                 <label for="gericht">Gericht</label>
             </div>
             <div>
-                <select class="form-control" name="gericht" required="required" aria-required="true">//Optionen soll von gericht sein
+                <select class="form-control" name="gericht" required="required" aria-required="true">
                     @foreach($gerichte as $g)
-                        <option value="{{$g["Name"]}}" selected="true" id="select-1673265972337-0">{{$g["Name"]}}</option>
+                        <option
+                                value="{{$g["Name"]}}" selected="true">
+                            {{$g["Name"]}}</option>
                     @endforeach
                 </select>
             </div>
@@ -21,7 +23,10 @@
                 <label for="bemerkung">bemerkung</label>
             </div>
             <div>
-                <textarea type="textarea" class="form-control" name="bemerkung" access="false" id="bemerkung" required></textarea>
+                <textarea type="textarea" class="form-control" name="bemerkung" access="false" id="bemerkung" minlength="20" required></textarea>
+                @if(!$check_bemerkung)
+                    <span class="fehler">Eingabe muss mindestens 5 Wort sein</span>
+                @endif
             </div>
             <div>
                 <label for="star">Stars</label>

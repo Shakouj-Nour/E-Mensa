@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    <form action="/anmeldung_verfizieren" method="post" id="frmLogin">
+    <form action="/anmeldung_verifizieren" method="post" id="frmLogin">
         <div class="demo-table">
 
             <div class="form-head">Login</div>

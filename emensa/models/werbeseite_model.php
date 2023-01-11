@@ -41,7 +41,7 @@ function werbeseite_allergen(){
 function werbeseite_review(){
     try{
         $link = connectdb();
-        $sql_review = "SELECT * FROM bewertung";
+        $sql_review = "SELECT * FROM bewertung ORDER BY zeit DESC ";
         $review = mysqli_query($link, $sql_review);
 
     }catch (Exception $ex) {
