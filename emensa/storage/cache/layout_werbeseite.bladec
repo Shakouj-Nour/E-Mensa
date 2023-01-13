@@ -28,6 +28,10 @@
  <?php echo $this->yieldContent('speisen'); ?>
  </div>
  <?php echo $this->yieldContent('allergien'); ?>
+ <h1>meinungen unserer Gäste</h1>
+ <div class="box" id="Speisen">
+ <?php echo $this->yieldContent('highlighted review'); ?>
+ </div>
  <?php echo $this->yieldContent('wichtig'); ?>
  </div>
  <footer>
