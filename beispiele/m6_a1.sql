@@ -9,7 +9,7 @@ CREATE TABLE `bewertung`
     `bemerkung` VARCHAR(800) NOT NULL,
     `zeit` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `sterne` INT NOT NULL,
-    `highlight` BOOL
+    `highlight` BOOL NOT NULL DEFAULT FALSE
 );
 
 /* dummy data */

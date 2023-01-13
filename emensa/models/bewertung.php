@@ -65,3 +65,26 @@ function db_delete_bewertung($bewertung_id){
 
     $link->query($sql);
 }
+
+function db_hervorheben_bewertung($bewertung_id){
+    $link = connectdb();
+
+    $sql = "UPDATE bewertung 
+            SET highlight = NOT highlight   
+            WHERE id = $bewertung_id";
+
+    $link->query($sql);
+}
+
+function db_get_hervorgehobene_benutzer_bewertung(){
+    $link = connectdb();
+
+    $sql = "SELECT b.id as bewertung_id, g.name as gericht, bn.b_name as name, bemerkung, sterne, zeit FROM bewertung as b
+            JOIN gericht as g on g.id = b.gericht_id AND b.highlight = 1
+            JOIN tbl_benutzeren bn on bn.b_id = b.b_id
+            ORDER BY b.zeit DESC 
+            LIMIT 30";
+
+    $res = $link->query($sql);
+    return $res;
+}

@@ -33,5 +33,7 @@ return array(
     '/bewertungen' => 'HomeController@bewertungen',
     '/bewerten_verifizieren'=>"HomeController@bewerten_verifizieren",
     '/meinebewertungen' => "HomeController@meinebewertungen",
-    '/delete_bewertung'=>"HomeController@delete_bewertung"
+    '/delete_bewertung'=>"HomeController@delete_bewertung",
+    '/hervorheben_bewertung' => 'HomeController@hervorheben_bewertung',
+    '/remove_hervorgehobene_bewertung' => 'HomeController@remove_hervorgehobene_bewertung',
 );

@@ -80,6 +80,40 @@
     @endforeach
 
 @endsection
+@section('highlighted review')
+        <table>
+            <thead>
+            <tr>
+                @if($admin)
+                    <th>Hervorheben</th>
+                @endif
+                <th>Gerichte</th>
+                <th>Sterne</th>
+                <th>Bemerkung</th>
+                <th>Erstellt vom</th>
+                <th>Erstellt am</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($review as $r)
+                <tr>
+                    @if($admin)
+                        <td>
+                            <a href="/remove_hervorgehobene_bewertung?bewertung_id={{$r['bewertung_id']}}">
+                                Abwählen
+                            </a>
+                        </td>
+                    @endif
+                    <td>{{$r["gericht"]}}</td>
+                    <td>{{$r["sterne"]}} </td>
+                    <td>{{$r["bemerkung"]}}</td>
+                    <td>{{$r["name"]}}</td>
+                    <td>{{$r["zeit"]}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+@endsection
 @section('wichtig')
     <h1>Das ist uns Wichtig</h1>
     <ul id="Wichtig">

@@ -28,6 +28,10 @@
             @yield('speisen')
         </div>
         @yield('allergien')
+        <h1>meinungen unserer Gäste</h1>
+        <div class="box" id="Speisen">
+            @yield('highlighted review')
+        </div>
         @yield('wichtig')
     </div>
     <footer>

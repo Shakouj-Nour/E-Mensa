@@ -23,6 +23,7 @@ class HomeController
     {
         $gerichte = werbeseite_gericht();
         $allergens = werbeseite_allergen();
+        $review = db_get_hervorgehobene_benutzer_bewertung();
 
         logger()->info('Werbeseite reached');
 
@@ -30,7 +31,8 @@ class HomeController
             'allergens' => $allergens,
             'gerichte' => $gerichte,
             'username' => $_SESSION['username'] ?? '',
-
+            'admin' => $_SESSION['admin'] ?? false,
+            'review' => $review,
             'rd' => $request
         ]);
     }
@@ -111,7 +113,8 @@ class HomeController
         $gericht = werbeseite_gericht();
         return view('bewertungen', [
             'review' => $review,
-            'gericht' => $gericht
+            'gericht' => $gericht,
+            'admin' => $_SESSION['admin'] ?? false
         ]);
     }
 
@@ -125,6 +128,16 @@ class HomeController
     public function delete_bewertung(RequestData $rd){
         db_delete_bewertung($rd->query['bewertung_id']);
         header("Location: /meinebewertungen");
+    }
+
+    public function hervorheben_bewertung(RequestData $rd){
+        db_hervorheben_bewertung($rd->query['bewertung_id']);
+        header("Location: /bewertungen");
+    }
+
+    public function remove_hervorgehobene_bewertung(RequestData $rd){
+        db_hervorheben_bewertung($rd->query['bewertung_id']);
+        header("Location: /werbeseite");
     }
 }
 
