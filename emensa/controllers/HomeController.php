@@ -24,6 +24,7 @@ class HomeController
         $gerichte = werbeseite_gericht();
         $allergens = werbeseite_allergen();
         $review = db_get_hervorgehobene_benutzer_bewertung();
+        $_SESSION['gerichtId'] = '';
 
         logger()->info('Werbeseite reached');
 
@@ -49,6 +50,11 @@ class HomeController
         $success = login_controller($rd);
         if ($success) {
             $_SESSION['username'] = $_POST['b_email'];
+            if(isset($_SESSION['gerichtId']) && $_SESSION['gerichtId'] >= 0 ){
+                $gerichtId = $_SESSION['gerichtId'];
+                header("Location: /bewertung?gerichtId=$gerichtId");
+                exit();
+            }
             header('Location: /werbeseite');
             logger()->info('Benutzer ist angemeldet');
         } else {

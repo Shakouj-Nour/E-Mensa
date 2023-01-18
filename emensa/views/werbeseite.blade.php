@@ -62,9 +62,9 @@
                     <td>{{$g["Preis_intern"]}} &euro;</td>
                     <td>{{$g["Preis_extern"]}} &euro;</td>
                     <td>{{$g["G_code"]}}</td>
-                    @if($username != '')
+
                         <td><a href='/benutzer_verifizieren?gerichtId={{$g['gericht_id']}}'>bewerten</a></td>
-                    @endif
+
                 </tr>
             @endforeach
 
